@@ -6,6 +6,8 @@
         <div class="card-trip justify-content-center">
           <%= cl_image_tag look.photo.key %>
         </div>
+      <%= link_to "Reject", reject_path(look), class: "btn btn-outline-danger", data: { turbo_method: :patch } %>
+      <%= link_to "Add as favorite", favorite_path(look), class: "btn btn-outline-info", data: { turbo_method: :patch } %>
       </div>
     <% end %>
   </div>

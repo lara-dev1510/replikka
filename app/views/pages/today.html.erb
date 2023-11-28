@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <p>Here are 3 options of look inspirations for today</p>
+    <% @looks.each do |look| %>
+      <div class="col-md-3 mb-4">
+        <div class="card-trip justify-content-center">
+          <%= cl_image_tag look.photo.key %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -9,4 +9,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "today", to: "pages#today", as: "today"
+  patch "/looks/:id/reject", to: "looks#reject", as: :reject
+  
 end

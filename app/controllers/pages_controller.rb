@@ -12,4 +12,9 @@ class PagesController < ApplicationController
     # if @looks.empty?
     # end
   end
+
+  def pieces
+    user = current_user
+    @pieces = user.pieces
+  end
 end

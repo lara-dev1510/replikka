@@ -5,9 +5,13 @@
       <div class="col-md-3 mb-4">
         <div class="card-trip justify-content-center">
           <%= cl_image_tag look.photo.key %>
+          <%= link_to reject_path(look), data: { turbo_method: :patch } do %>
+            <i class= "fa-solid fa-xmark"></i>
+          <% end %>
+          <%= link_to favorite_path(look), data: { turbo_method: :patch }  do %>
+            <i class="fa-regular fa-bookmark"></i>
+          <% end %>
         </div>
-      <%= link_to "", reject_path(look), data: { turbo_method: :patch }, class: "fa-solid fa-xmark" %>
-      <%= link_to "", favorite_path(look), data: { turbo_method: :patch }, class:"fa-regular fa-bookmark" %>
       </div>
     <% end %>
   </div>

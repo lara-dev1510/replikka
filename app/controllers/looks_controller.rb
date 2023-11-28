@@ -6,12 +6,14 @@ class LooksController < ApplicationController
     # redirect_to today_path
     user = current_user
     @look.block(user)
+    redirect_to today_path
   end
 
   def favorite
     @look = Look.find(params[:id])
     user = current_user
     user.favorite(@look)
+    redirect_to today_path
   end
 
   # def unfavorite

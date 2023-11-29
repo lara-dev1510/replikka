@@ -27,7 +27,7 @@
 .card-trip .fa-bookmark {
   background: $dark-blue;
   position: absolute;
-  right: 120px;
+  right: 80px;
   top: 275px;
   padding: 10px;
   border-radius: 50%;
@@ -43,7 +43,7 @@
 .card-trip .fa-xmark {
   background-color: $white-broke;
   position: absolute;
-  right: 220px;
+  right: 180px;
   top : 275px;
   padding: 10px;
   border-radius: 50%;
@@ -54,4 +54,8 @@
   justify-content: center;
   font-size: 27px;
   color: $dark-blue;
+}
+
+.swiper{
+  width: 300px;
 }

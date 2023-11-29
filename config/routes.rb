@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   patch "/looks/:id/favorite", to: "looks#favorite", as: :favorite
   # get "/outfits/:id", to: "looks#explore", as: :explore
 
+  get "/favorites", to: "looks#favorites", as: :favorites
+
   get "/pieces", to: "pages#pieces", as: :pieces
 
   get "/outfits/:id", to: "outfits#show", as: :outfit

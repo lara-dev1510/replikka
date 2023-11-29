@@ -92,8 +92,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_154518) do
 
   create_table "outfits", force: :cascade do |t|
     t.boolean "confirmed"
+    t.bigint "look_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["look_id"], name: "index_outfits_on_look_id"
   end
 
   create_table "pieces", force: :cascade do |t|
@@ -142,6 +144,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_154518) do
   add_foreign_key "look_subcategories", "subcategories"
   add_foreign_key "outfit_pieces", "outfits"
   add_foreign_key "outfit_pieces", "pieces"
+  add_foreign_key "outfits", "looks"
   add_foreign_key "pieces", "subcategories"
   add_foreign_key "pieces", "users"
   add_foreign_key "subcategories", "categories"

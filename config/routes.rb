@@ -19,5 +19,7 @@ Rails.application.routes.draw do
 
   get "/pieces", to: "pages#pieces", as: :pieces
 
+  get "/outfits/new", to: "outfits#new"
   get "/outfits/:id", to: "outfits#show", as: :outfit
+
 end

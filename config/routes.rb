@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "today", to: "pages#today", as: "today"
+  get "today", to: "pages#today", as: :today
   patch "/looks/:id/reject", to: "looks#reject", as: :reject
   patch "/looks/:id/favorite", to: "looks#favorite", as: :favorite
+  # get "/outfits/:id", to: "looks#explore", as: :explore
 
   get "/pieces", to: "pages#pieces", as: :pieces
 

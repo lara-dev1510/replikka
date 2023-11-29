@@ -1,8 +1,8 @@
 .card-trip {
   overflow: hidden;
-  background: white;
+  // background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 400px;
+  height: 580px;
 }
 
 .card-trip > img {
@@ -10,6 +10,7 @@
   width: 100%;
   object-fit: cover;
   object-position: top;
+  border-radius: 5px;
 }
 
 .card-trip h2 {

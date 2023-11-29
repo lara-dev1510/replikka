@@ -9,12 +9,18 @@
 #   end
 
 require "open-uri"
+require "csv"
+
 
 puts "Cleaning database..."
 # DEPENDENT destroys the rest?
-Look.destroy_all
 Outfit.destroy_all
 User.destroy_all
+Piece.destroy_all
+LookSubcategory.destroy_all
+Subcategory.destroy_all
+Category.destroy_all
+Look.destroy_all
 
 # shall we also destroy_all tables de jointures and potentially subcategory & category (4 more tables)?
 
@@ -44,20 +50,72 @@ puts 'Creating users...'
 end
 puts "Finished with users!"
 
-puts 'Fetching images for looks inspirations...'
-look_1_img = "https://www.taaora.fr/blog/wp-content/uploads/2022/11/tenue-hiver-femme-total-look-beige.jpg"
-look_2_img = "https://archzine.fr/wp-content/uploads/2022/12/tenue-monochrome-noire-avec-manteau-tres-long-et-baskets-blancs.webp"
-look_3_img = "https://archzine.fr/wp-content/uploads/2019/11/jeans-fonce%CC%81s-slim-bottines-velours-noir-pull-over-noir-look-total-noir-avec-manteau-femme-hiver-2020-couleur-lie-de-vin-sac-noir-cuir.jpg"
+puts "Creating categories"
 
-images = [look_1_img, look_2_img, look_3_img]
-image_index = 0
+Category::CATEGORIES.each do |category_params|
+  Category.create!(category_params)
+end
 
-puts 'Creating looks inspirations...'
-3.times do
-    look = Look.new()
-    file = URI.open(images[image_index])
-    look.photo.attach(io: file, filename: "#{look.id}.png", content_type: "image/png")
-    image_index += 1
-    look.save!
-    puts "Created Look #{look.id}"
-  end
+puts "Finished with #{Category.count} categories"
+
+# puts "Creating subcategories"
+
+# Subcategory::ITEMS.each do |item|
+#   Subcategory::COLORS.each do |color|
+#     Subcategory::FABRICS.each do |fabric|
+#       Subcategory.create(
+#         name: item[:name],
+#         category_id: Category.find_by_position(item[:position]).id,
+#         color: color,
+#         fabric: fabric[:name],
+#         temperature_range: item[:temperature_range] ? item[:temperature_range] : fabric[:temperature_range]
+#       )
+#     end
+#   end
+# end
+
+# puts "Finished with #{Subcategory.count} subcategories"
+
+filepath_looks = "storage/looks_seed.csv"
+filepath_pieces = "storage/pieces_seed.csv"
+filepath_looks_subcategories = "storage/looks_subcategories_seed.csv"
+
+CSV.foreach(filepath_looks, headers: :first_row) do |row|
+  look = Look.create!
+  file = URI.open(row['image'])
+  look.photo.attach(io: file, filename: "look_#{look.id}.png", content_type: "image/jpeg")
+  look.save
+  puts "✅ Created Look #{look.id}"
+end
+
+
+CSV.foreach(filepath_looks_subcategories, headers: :first_row) do |row|
+  item = Subcategory::ITEMS.find{ |item| item[:name] == row['item'] }
+  fabric = Subcategory::FABRICS.find{ |item| item[:name] == row['fabric'] }
+  subcategory = Subcategory.find_or_create_by(
+    name: item[:name],
+    category_id: Category.find_by_position(item[:position]).id,
+    color: row['color'],
+    fabric: fabric[:name],
+    temperature_range: item[:temperature_range] ? item[:temperature_range] : fabric[:temperature_range]
+  )
+  LookSubcategory.create(subcategory: subcategory, look: Look.all[row['id'].to_i - 1])
+  # puts "✅ Added subcategories to looks #{look_subcategory.id}"
+end
+
+CSV.foreach(filepath_pieces, headers: :first_row) do |row|
+  item = Subcategory::ITEMS.find{ |item| item[:name] == row['item'] }
+  fabric = Subcategory::FABRICS.find{ |item| item[:name] == row['fabric'] }
+  subcategory = Subcategory.find_or_create_by(
+    name: item[:name],
+    category_id: Category.find_by_position(item[:position]).id,
+    color: row['color'],
+    fabric: fabric[:name],
+    temperature_range: item[:temperature_range] ? item[:temperature_range] : fabric[:temperature_range]
+  )
+  piece = Piece.create(name: row['name'], user: User.first, subcategory: subcategory)
+  file = URI.open(row['image'])
+  piece.photo.attach(io: file, filename: "#{piece.name}.png", content_type: "image/jpeg")
+  piece.save
+  puts "✅ Created pieces with subcategories #{piece.id}"
+end

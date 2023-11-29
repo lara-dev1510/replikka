@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @looks = Look.all - blocked_looks
     # if @looks.empty?
     # end
+    # @outfit = xxxx
   end
 
   def pieces

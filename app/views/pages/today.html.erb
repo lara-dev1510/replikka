@@ -15,12 +15,12 @@
                   <%= link_to favorite_path(look), data: { turbo_method: :patch }  do %>
                     <i class="fa-regular fa-bookmark"></i>
                   <% end %>
+                  <%#= link_to "explore", outfit_path(look.outfits.sample) %>
+                  <%= link_to "explore", root_path %>
                 </div>
-                <%#= link_to "", explore_path(look), class:"fa-regular fa-bookmark" %>
               </div>
-            </div>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+</div>

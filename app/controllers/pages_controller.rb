@@ -5,6 +5,16 @@ class PagesController < ApplicationController
   end
 
   def today
-    @looks = Look.all
+    # @looks = Look.all
+    user = current_user
+    blocked_looks = user.blocked_by
+    @looks = Look.all - blocked_looks
+    # if @looks.empty?
+    # end
+  end
+
+  def pieces
+    user = current_user
+    @pieces = user.pieces
   end
 end

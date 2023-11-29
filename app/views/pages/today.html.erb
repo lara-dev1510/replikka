@@ -1,22 +1,26 @@
 
 <div class="container">
     <h2>Your 3 look inspo for today</h2>
-    <div class="swiper" data-controller="swiper">
-      <div class="swiper-wrapper replikka-swiper">
-        <% @looks.each do |look| %>
-          <div class="swiper-slide">
-            <div class="card-trip justify-content-center">
-              <%= cl_image_tag look.photo.key %>
-              <%= link_to reject_path(look), data: { turbo_method: :patch } do %>
-                <i class= "fa-solid fa-xmark"></i>
-              <% end %>
-              <%= link_to favorite_path(look), data: { turbo_method: :patch }  do %>
-                <i class="fa-regular fa-bookmark"></i>
-              <% end %>
-              <%#= link_to "", explore_path(look), class:"fa-regular fa-bookmark" %>
+    <div class="row">
+      <div class="swiper" data-controller="swiper">
+        <div class="swiper-wrapper replikka-swiper">
+          <% @looks.each do |look| %>
+            <div class="swiper-slide">
+              <div class="card-trip justify-content-center">
+                <%= cl_image_tag look.photo.key %>
+                <div class="button-display">
+                  <%= link_to reject_path(look), data: { turbo_method: :patch } do %>
+                    <i class= "fa-solid fa-xmark"></i>
+                  <% end %>
+                  <%= link_to favorite_path(look), data: { turbo_method: :patch }  do %>
+                    <i class="fa-regular fa-bookmark"></i>
+                  <% end %>
+                </div>
+                <%#= link_to "", explore_path(look), class:"fa-regular fa-bookmark" %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

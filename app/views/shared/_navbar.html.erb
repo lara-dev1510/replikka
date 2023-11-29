@@ -1,14 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <% if user_signed_in? %>
-      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-house" %>
+      <%= link_to "", pieces_path, class: "nav-link", class: "fa-solid fa-house" %>
       <%= link_to "", today_path, class: "fa-solid fa-lightbulb" %>
-      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-heart" %>
+      <%= link_to "", outfits_new_path, class: "fa-solid fa-layer-group" %>
+      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-bookmark" %>
       <%= link_to "", destroy_user_session_path, data: { turbo_method: :delete}, class: "fa-solid fa-user"%>
     <% else %>
       <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-house" %>
       <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-lightbulb" %>
-      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-heart" %>
+      <%= link_to "", "#", class: "fa-solid fa-layer-group" %>
+      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-bookmark" %>
       <%= link_to "", new_user_session_path, class: "fa-solid fa-user" %>
     <% end %>
   </div>

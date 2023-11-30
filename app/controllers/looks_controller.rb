@@ -13,7 +13,7 @@ class LooksController < ApplicationController
     @look = Look.find(params[:id])
     user = current_user
     user.favorite(@look)
-    redirect_to today_path
+    # redirect_to today_path
     # to see all favorites of this user user.all_favorites
   end
 
@@ -65,9 +65,10 @@ class LooksController < ApplicationController
   # raise
   end
 
-  # def unfavorite
-  #   @look = Look.find(params[:id])
-  #   user = current_user
-  #   user.unfavorite(@look)
-  # end
+  def unfavorite
+    @look = Look.find(params[:id])
+    user = current_user
+    user.unfavorite(@look)
+    redirect_to favorites_path
+  end
 end

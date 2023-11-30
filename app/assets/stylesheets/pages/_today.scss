@@ -85,3 +85,20 @@ p {
   margin-top: 0;
   margin-bottom: 0rem;
 }
+
+.link-to-show-outfit {
+  height: 75%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 5px;
+  display: block;
+
+  & > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+  }
+}

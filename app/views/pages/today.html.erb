@@ -19,7 +19,9 @@
           <% @looks.each do |look| %>
             <div class="swiper-slide">
               <div class="card-trip justify-content-center">
-                <%= cl_image_tag look.photo.key %>
+                <%= link_to explore_look_path(look), class: 'link-to-show-outfit' do %>
+                  <%= cl_image_tag look.photo.key %>
+                <% end %>
                 <div class="button-display">
                   <%= link_to reject_path(look), data: { turbo_method: :patch } do %>
                     <i class= "fa-solid fa-xmark"></i>
@@ -28,7 +30,6 @@
                     <i class="fa-regular fa-bookmark"></i>
                   <% end %>
                   <%#= link_to "explore", outfit_path(look.outfits.sample) %>
-                  <%= link_to "explore", explore_look_path(look) %>
                 </div>
               </div>
             </div>

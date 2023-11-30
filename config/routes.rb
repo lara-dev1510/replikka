@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/looks/favorites", to: "looks#favorites", as: :favorites
 
   get "/pieces", to: "pages#pieces", as: :pieces
+  get "/generate", to: "pages#generate", as: :generate
 
   get "/outfits/new", to: "outfits#new"
   get "/outfits/:id", to: "outfits#show", as: :outfit

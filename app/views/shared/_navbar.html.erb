@@ -8,7 +8,7 @@
         <%= link_to today_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "today"} " do %>
           <i class="fa-solid fa-lightbulb"></i>
         <% end %>
-        <%= link_to outfits_new_path, class: "nav-link #{"active" if controller_name == "outfits" && action_name == "new"} " do %>
+        <%= link_to generate_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "generate"} " do %>
           <i class="fa-solid fa-layer-group"></i>
         <% end %>
         <%= link_to favorites_path, class: "nav-link #{"active" if controller_name == "looks" && action_name == "favorite"} " do %>

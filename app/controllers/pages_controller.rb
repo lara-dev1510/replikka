@@ -30,6 +30,22 @@ class PagesController < ApplicationController
     end
   end
 
+  def generate
+    user = current_user
+    @pieces = user.pieces
+    if params[:query].present?
+      # @pieces = @pieces.where("name ILIKE ?", "%#{params[:query]}%")
+    #   sql_subquery = <<~SQL
+    #   pieces.name @@ :query
+    #   OR subcategories.name @@ :query
+    #   OR subcategories.color @@ :query
+    #   OR subcategories.fabric @@ :query
+    # SQL
+    # @pieces = @pieces.joins(:subcategory).where(sql_subquery, query: params[:query])
+    @pieces = user.pieces.global_search(params[:query])
+    end
+  end
+
   private
 
   def pieces_params

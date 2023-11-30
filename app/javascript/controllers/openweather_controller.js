@@ -18,7 +18,7 @@ export default class extends Controller {
 
   geolocalisation() {
     navigator.geolocation.getCurrentPosition((data) => {
-      const urlWithCoordinates = `http://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${this.apiKey}&units=metric`;
+      const urlWithCoordinates = `https://api.openweathermap.org/data/2.5/weather?lat=${data.coords.latitude}&lon=${data.coords.longitude}&appid=${this.apiKey}&units=metric`;
       // console.log({ lat: data.coords.latitude, lon: data.coords.longitude })
       // console.log(urlWithCoordinates)
 

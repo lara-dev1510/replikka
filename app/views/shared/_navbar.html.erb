@@ -1,17 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <% if user_signed_in? %>
-      <%= link_to "", pieces_path, class: "nav-link", class: "fa-solid fa-house" %>
-      <%= link_to "", today_path, class: "fa-solid fa-lightbulb" %>
-      <%= link_to "", outfits_new_path, class: "fa-solid fa-layer-group" %>
-      <%= link_to "", favorites_path, class: "nav-link", class: "fa-solid fa-bookmark" %>
-      <%= link_to "", destroy_user_session_path, data: { turbo_method: :delete}, class: "fa-solid fa-user"%>
-    <% else %>
-      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-house" %>
-      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-lightbulb" %>
-      <%= link_to "", "#", class: "fa-solid fa-layer-group" %>
-      <%= link_to "", "#", class: "nav-link", class: "fa-solid fa-bookmark" %>
-      <%= link_to "", new_user_session_path, class: "fa-solid fa-user" %>
-    <% end %>
+<div data-controller="navbar">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid" >
+      <% if user_signed_in? %>
+        <%= link_to pieces_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "pieces"} " do %>
+          <i class="fa-solid fa-house"></i>
+        <% end %>
+        <%= link_to today_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "today"} " do %>
+          <i class="fa-solid fa-lightbulb"></i>
+        <% end %>
+        <%= link_to outfits_new_path, class: "nav-link #{"active" if controller_name == "outfits" && action_name == "new"} " do %>
+          <i class="fa-solid fa-layer-group"></i>
+        <% end %>
+        <%= link_to favorites_path, class: "nav-link #{"active" if controller_name == "looks" && action_name == "favorite"} " do %>
+          <i class="fa-solid fa-bookmark"></i>
+        <% end %>
+        <%= link_to destroy_user_session_path, data: { turbo_method: :delete} do %>
+          <i class="fa-solid fa-user"></i>
+        <% end %>
+      <% else %>
+        <%= link_to "", new_user_session_path, class: "nav-link fa-solid fa-house"%>
+        <%= link_to "", new_user_session_path, class: "nav-link fa-solid fa-lightbulb" %>
+        <%= link_to "", new_user_session_path, class: "fa-solid fa-layer-group" %>
+        <%= link_to "", new_user_session_path, class: "nav-link fa-solid fa-bookmark" %>
+        <%= link_to "", new_user_session_path, class: "fa-solid fa-user" %>
+      <% end %>
+    </div>
   </div>
 </div>

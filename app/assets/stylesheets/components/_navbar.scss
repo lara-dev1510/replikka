@@ -14,3 +14,7 @@
 .navbar {
   padding: 15px;
 }
+
+.active > i {
+  color: $dark-blue; /* Change to your preferred active color */
+}

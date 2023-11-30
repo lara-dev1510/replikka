@@ -7,5 +7,4 @@ class OutfitsController < ApplicationController
     # @outfit = Outfit.find(params[:id])
     # @pieces = @outfit.pieces
   end
-
 end

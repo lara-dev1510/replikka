@@ -17,6 +17,11 @@ class LooksController < ApplicationController
     # to see all favorites of this user user.all_favorites
   end
 
+  def favorites
+    user = current_user
+    @favorites = user.all_favorites
+  end
+
   # def explore
   #   redirect_to root_path
   #   # @look = Look.find(params[:id])
@@ -24,6 +29,41 @@ class LooksController < ApplicationController
   #   # missing piece
   #   # redirect_to outfit_path
   # end
+
+  def explore
+    user = current_user
+    @pieces = user.pieces
+    @look = Look.find(params[:id]) # écrire :look_id?
+    @potential_pieces = []
+    @subcategories = []
+    @look.subcategories.each do |subcategory|
+      @subcategories << subcategory
+      @pieces.each do |piece|
+        if piece.subcategory == subcategory
+          @potential_pieces << piece
+          # OutfitPiece.create(piece_id: piece.id, outfit_id: outfit.id)
+        end
+      end
+    end
+  end
+
+  def explore_large #lui donner un look?
+    user = current_user
+    @pieces = user.pieces
+    @look = Look.find(params[:id]) # écrire :look_id?
+    @potential_pieces = []
+    @subcategories = []
+    @look.subcategories.each do |subcategory|
+      @subcategories << subcategory
+      @pieces.each do |piece|
+        if (piece.subcategory.color == subcategory.color && piece.subcategory.name == subcategory.name)
+          @potential_pieces << piece
+          # OutfitPiece.create(piece_id: piece.id, outfit_id: outfit.id)
+        end
+      end
+    end
+  # raise
+  end
 
   # def unfavorite
   #   @look = Look.find(params[:id])

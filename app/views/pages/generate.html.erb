@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3" data-controller='searchbar' data-action="keyup->searchbar#search">
+     <div data-searchbar-target="input">
+        <%= form_with url: pieces_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Type a keyword"
+            %>
+     </div>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+      <ul id="results" class="list-group list-group-horizontal" data-searchbar-target="results"></ul>
+    </div>
+    <p>Here are your <strong><%= @pieces.count %></strong> <%= "piece".pluralize(@pieces.count) %></p>
+      <% if @pieces.any? %>
+        <div class="pieces-list">
+          <% @pieces.each do |piece| %>
+              <div class="pieces-list-item justify-content-center">
+                <%= cl_image_tag piece.photo.key %>
+                <h6><%= piece.name %></h6>
+                <form action="">
+                  <input type="radio" value="<%= piece.id %>">
+                  <div>
+                    <input type="submit" value="Save">
+                  </div>
+                </form>
+                <%# <%= form_for :piece do |f| %>
+                    <%# <%= f.collection_radio_buttons(:piece_id, Piece.all, :id, :name) %>
+                    <%# <%= f.submit %>
+                <%# <% end %>
+              </div>
+              <%#= link_to "Delete", delete_path(piece), class: "btn btn-outline-danger", data: { turbo_method: :patch } %>
+              <%#= link_to "Add as favorite", favorite_path(piece), class: "btn btn-outline-info", data: { turbo_method: :patch } %>
+          <% end %>
+        </div>
+      <% else %>
+        <em> Sorry, no pieces found. </em>
+      <% end %>
+  </div>
+</div>

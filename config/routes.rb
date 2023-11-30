@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "today", to: "pages#today", as: :today
   patch "/looks/:id/reject", to: "looks#reject", as: :reject
   patch "/looks/:id/favorite", to: "looks#favorite", as: :favorite
-  # get "/outfits/:id", to: "looks#explore", as: :explore
+  get "/looks/:id/explore", to: 'looks#explore', as: :explore_look
 
   get "/favorites", to: "looks#favorites", as: :favorites
 

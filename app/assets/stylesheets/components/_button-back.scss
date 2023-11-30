@@ -1,0 +1,19 @@
+.container .button-back {
+  display: flex; /* Align items using Flexbox */
+  align-items: center; /* Center-align vertically */
+  justify-content: flex-start; /* Align to the start (left) */
+}
+
+.button-back a {
+  padding-left: 16px;
+  text-decoration: none; /* Remove underline */
+  color: $dark-blue; /* Optional: keeps the link color consistent with the rest of the text */
+    &:hover {
+    color: $light-blue
+  }
+}
+
+.button-back i {
+  color: $dark-blue !important;
+
+}

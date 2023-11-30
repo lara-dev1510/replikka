@@ -1,9 +1,10 @@
 
-<div class="container">
-    <h2>Your 3 look inspo for today</h2>
+<div class="container mt-2">
+  <div class="title-meteo">
+    <h2>Today's look inspo</h2>
     <div class="col-sm-8" data-controller='openweather'>
-      <div class="card mt-1 mb-1">
-        <div class="card-body">
+      <div class="card">
+        <div class="meteo-card">
           <p> <span data-openweather-target='city'></span>
             <img src="" data-openweather-target='icon'>
             <span data-openweather-target='temp'></span>°C
@@ -12,6 +13,7 @@
         </div>
       </div>
     </div>
+  </div>
 
     <div class="row">
       <div class="swiper" data-controller="swiper">

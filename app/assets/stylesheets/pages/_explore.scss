@@ -1,0 +1,40 @@
+.container .look-details {
+  width: 100%; /* Full width on mobile */
+  padding: 10px; /* Add some padding */
+}
+
+@media (max-width: 768px) { /* Example media query for mobile devices */
+  .container .look-details .row .col-md-3 {
+    width: 100%; /* Full width for each column on small screens */
+    margin-bottom: 15px; /* Add some space between items */
+  }
+}
+
+.thumbnail {
+  display: flex;
+  justify-content: center;
+}
+
+.thumbnail > img {
+  width: 50%;
+}
+
+.matching-pieces {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.piece-swipe-card {
+  overflow: hidden;
+  // background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 200px;
+}
+
+.piece-swipe-card > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}

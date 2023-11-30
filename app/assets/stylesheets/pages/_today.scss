@@ -102,3 +102,15 @@ p {
     border-radius: 5px;
   }
 }
+
+.meteo-card {
+  float: right;
+  text-align: right;
+  & > p {
+    color: $light-blue;
+  }
+}
+
+.card {
+  border: none;
+}

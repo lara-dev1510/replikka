@@ -1,18 +1,23 @@
 
-<div class="container">
-  <div class= "thumbnail">
-    <%= cl_image_tag @look.photo.key %>
-  </div>
-  <div class="row">
-    <p>Here are your pieces to match this look</p>
-    <% @potential_pieces.each do |piece| %>
-      <div class="col-md-3 mb-4">
-        <div class="card-trip justify-content-center">
-          <%= cl_image_tag piece.photo.key %>
-        </div>
-      <%#= link_to "Delete", delete_path(piece), class: "btn btn-outline-danger", data: { turbo_method: :patch } %>
-      <%#= link_to "Add as favorite", favorite_path(piece), class: "btn btn-outline-info", data: { turbo_method: :patch } %>
-      </div>
+<div class="container mt-3">
+  <div class="button-back">
+    <%= link_to today_path do %>
+      <h5><i class="fa-solid fa-arrow-right fa-rotate-180"></i></h5>
     <% end %>
+  </div>
+  <div class="look-details">
+    <div class="thumbnail">
+      <%= cl_image_tag @look.photo.key %>
+    </div>
+    <div class="row matching-pieces">
+      <p>Match this look</p>
+      <% @potential_pieces.each do |piece| %>
+        <div class="col-md-3 mb-4">
+          <div class="piece-swipe-card justify-content-center">
+            <%= cl_image_tag piece.photo.key %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

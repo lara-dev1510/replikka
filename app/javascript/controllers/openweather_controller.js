@@ -25,16 +25,16 @@ export default class extends Controller {
       fetch(urlWithCoordinates)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
-          this.cityTarget.innerText = data.name
-          this.city = data.name
-          console.log(data.main.temp);
+          console.log(data.name.split(' '));
+          this.city = (data.name).split(' ')
+          this.cityTarget.innerText = this.city[0]
+          // console.log(data.main.temp);
           this.temp = Math.round(data.main.temp)
           this.tempTarget.innerText = this.temp
-          console.log(data.weather[0].description);
+          // console.log(data.weather[0].description);
           this.descriptionTarget.innerText = data.weather[0].description
           this.description = data.weather[0].description
-          console.log(data.weather[0].icon)
+          // console.log(data.weather[0].icon)
           this.iconTarget.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
           this.icon = data.weather[0].icon
         })

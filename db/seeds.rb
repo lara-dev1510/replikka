@@ -83,7 +83,7 @@ filepath_looks_subcategories = "storage/looks_subcategories_seed.csv"
 CSV.foreach(filepath_looks, headers: :first_row) do |row|
   look = Look.create!
   file = URI.open(row['image'])
-  look.photo.attach(io: file, filename: "look_#{look.id}.png", content_type: "image/jpeg")
+  look.photo.attach(io: file, filename: "look_#{look.id}.jpg", content_type: "image/jpeg")
   look.save
   puts "✅ Created Look #{look.id}"
 end

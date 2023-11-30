@@ -20,18 +20,15 @@ i {
 }
 
 i:hover {
-  color: $light-blue
+  color: $dark-blue
 }
 
 .fa-solid {
   font-size: x-large;
   text-decoration: none;
+  color: $blue-sky-dark
 }
 
-.fa-solid::before {
- color: $dark-blue;
+.fa-solid:hover {
+  color: $dark-blue;
 }
-
-.fa-solid::after {
-  color: $light-blue;
- }

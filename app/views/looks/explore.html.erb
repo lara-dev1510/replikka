@@ -14,5 +14,18 @@
       <%#= link_to "Add as favorite", favorite_path(piece), class: "btn btn-outline-info", data: { turbo_method: :patch } %>
       </div>
     <% end %>
+    <%#= link_to look_outfit_index_path(@outfit), data: { turbo_method: :patch } %>
+  </div>
+  <div>
+  <%#= form_for(@outfit) do |f| %>
+    <%# <div class="field"> %>
+      <%#= f.label :key %>
+      <%#= f.text.select hash[:key] %>
+    </div>
+
+    <%# <div class="actions"> %>
+      <%#= f.submit %>
+    </div>
+  <%# end %>
   </div>
 </div>

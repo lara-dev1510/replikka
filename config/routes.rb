@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   get "/outfits/new", to: "outfits#new"
   get "/outfits/:id", to: "outfits#show", as: :outfit
 
+  resources :looks, only: :show do
+    resources :outfit, only: :create
+  end
 end

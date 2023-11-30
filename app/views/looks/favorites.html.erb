@@ -1,1 +1,28 @@
-here are your favorites
+<div class="container">
+  <h2>Your favorites</h2>
+    <div class="row">
+      <% @favorites.each do |favorite| %>
+        <div class="col-md-3 mb-4">
+          <div class="card-trip justify-content-center">
+            <%= cl_image_tag Look.find(favorite.favoritable_id).photo.key %>
+            <div class = "button-display">
+              <%= link_to unfavorite_path(Look.find(favorite.favoritable_id)), data: { turbo_method: :patch }  do %>
+              <i class="fa-regular fa-bookmark"></i>
+              <% end %>
+              <%= link_to "explore", explore_look_path(Look.find(favorite.favoritable_id)) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+                <%# <div class="button-display"> %>
+                  <%#= link_to favorite_path(look), data: { turbo_method: :patch }  do %>
+                    <%# <i class="fa-regular fa-bookmark"></i> %>
+                  <%# end %>
+                  <%#= link_to "explore", outfit_path(look.outfits.sample) %>
+                  <%#= link_to "explore", root_path %>
+                <%# </div> %>
+            <%# </div> %>
+            <%# </div> %>
+          <%# end %>
+    </div>
+</div>

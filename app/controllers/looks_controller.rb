@@ -13,8 +13,13 @@ class LooksController < ApplicationController
     @look = Look.find(params[:id])
     user = current_user
     user.favorite(@look)
-    redirect_to today_path
+    # redirect_to today_path
     # to see all favorites of this user user.all_favorites
+  end
+
+  def favorites
+    user = current_user
+    @favorites = user.all_favorites
   end
 
   # def explore
@@ -25,9 +30,45 @@ class LooksController < ApplicationController
   #   # redirect_to outfit_path
   # end
 
-  # def unfavorite
-  #   @look = Look.find(params[:id])
-  #   user = current_user
-  #   user.unfavorite(@look)
-  # end
+  def explore
+    user = current_user
+    @pieces = user.pieces
+    @look = Look.find(params[:id]) # écrire :look_id?
+    @potential_pieces = []
+    @subcategories = []
+    @look.subcategories.each do |subcategory|
+      @subcategories << subcategory
+      @pieces.each do |piece|
+        if piece.subcategory == subcategory
+          @potential_pieces << piece
+          # OutfitPiece.create(piece_id: piece.id, outfit_id: outfit.id)
+        end
+      end
+    end
+  end
+
+  def explore_large #lui donner un look?
+    user = current_user
+    @pieces = user.pieces
+    @look = Look.find(params[:id]) # écrire :look_id?
+    @potential_pieces = []
+    @subcategories = []
+    @look.subcategories.each do |subcategory|
+      @subcategories << subcategory
+      @pieces.each do |piece|
+        if (piece.subcategory.color == subcategory.color && piece.subcategory.name == subcategory.name)
+          @potential_pieces << piece
+          # OutfitPiece.create(piece_id: piece.id, outfit_id: outfit.id)
+        end
+      end
+    end
+  # raise
+  end
+
+  def unfavorite
+    @look = Look.find(params[:id])
+    user = current_user
+    user.unfavorite(@look)
+    redirect_to favorites_path
+  end
 end

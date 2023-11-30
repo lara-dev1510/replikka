@@ -36,8 +36,10 @@ class LooksController < ApplicationController
     @look = Look.find(params[:id]) # écrire :look_id?
     @potential_pieces = []
     @subcategories = []
+    @subcats = {}
     @look.subcategories.each do |subcategory|
       @subcategories << subcategory
+      # @subcats ajouter le hash et mettre dedans les valeurs poru faire @subcats = {subcategory_id: [piece_1, piece_2]}
       @pieces.each do |piece|
         if piece.subcategory == subcategory
           @potential_pieces << piece
@@ -45,6 +47,7 @@ class LooksController < ApplicationController
         end
       end
     end
+    # raise
   end
 
   def explore_large #lui donner un look?
@@ -62,6 +65,7 @@ class LooksController < ApplicationController
         end
       end
     end
+    @outfit = Outfit.new
   # raise
   end
 

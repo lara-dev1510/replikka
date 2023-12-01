@@ -28,11 +28,16 @@
     <div class="row matching-pieces" data-toggle-target="matchingPieces">
       <% @potential_pieces.each do |piece| %>
         <div class="col-md-3 mb-4">
-          <div class="piece-swipe-card justify-content-center">
+          <div class="piece-swipe-card justify-content-center" data-toggle-target="matchingImage" >
             <%= cl_image_tag piece.photo.key %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+    <div class="slider" >
+    <input data-toggle-target="slider" data-action="input->toggle#slide" type="range" value="0">
+    <span>Confirm</span>
+</div>
+</div>
 </div>

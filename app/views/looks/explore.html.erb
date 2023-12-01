@@ -1,29 +1,31 @@
 
-<div class="container mt-3">
-  <div class="button-back">
-    <%= link_to today_path do %>
-      <h5><i class="fa-solid fa-arrow-right fa-rotate-180"></i></h5>
-    <% end %>
-    <%#= link_to look_outfit_index_path(@outfit), data: { turbo_method: :patch } %>
-  </div>
-  <div>
-  <%#= form_for(@outfit) do |f| %>
-    <%# <div class="field"> %>
-      <%#= f.label :key %>
-      <%#= f.text.select hash[:key] %>
-    <%# </div> %>
+<div class="container mt-3" data-controller="toggle">
+  <div class="top-show">
+    <div class="button-back">
+      <%= link_to today_path do %>
+        <h5><i class="fa-solid fa-arrow-right fa-rotate-180"></i></h5>
+      <% end %>
+      <%#= link_to look_outfit_index_path(@outfit), data: { turbo_method: :patch } %>
+    </div>
+    <%# <div> %>
+    <%#= form_for(@outfit) do |f| %>
+      <%# <div class="field"> %>
+        <%#= f.label :key %>
+        <%#= f.text.select hash[:key] %>
+      <%# </div> %>
 
-    <%# <div class="actions"> %>
-      <%#= f.submit %>
+      <%# <div class="actions"> %>
+        <%#= f.submit %>
+      <%# </div> %>
+    <%# end %>
     <%# </div> %>
-  <%# end %>
+    <div class="button-switch" data-action="click->toggle#switchDisplay" data-toggle-target="title">Look</div>
   </div>
   <div class="look-details">
-    <div class="thumbnail">
+    <div class="thumbnail hidden" data-toggle-target="thumbnail">
       <%= cl_image_tag @look.photo.key %>
     </div>
-    <div class="row matching-pieces">
-      <p>Match this look</p>
+    <div class="row matching-pieces" data-toggle-target="matchingPieces">
       <% @potential_pieces.each do |piece| %>
         <div class="col-md-3 mb-4">
           <div class="piece-swipe-card justify-content-center">

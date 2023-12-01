@@ -1,0 +1,21 @@
+.button-switch{
+  color: $blue-sky-dark;
+  transition: opacity 0.3s ease;
+  border: 1px solid $blue-sky-dark;
+  padding: 8px 24px;
+  border-radius: 50px;
+  align-items: center;
+  width:120px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: $dark-blue;
+}
+
+
+
+
+
+/* Initially hide thumbnail */
+// .thumbnail {
+//   display: none;
+// }

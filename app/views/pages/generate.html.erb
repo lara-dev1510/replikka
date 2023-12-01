@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3" data-controller='searchbar' data-action="keyup->searchbar#search">
      <div data-searchbar-target="input">
-        <%= form_with url: pieces_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: generate_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",

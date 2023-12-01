@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get "/outfits/:id", to: "outfits#show", as: :outfit
 
   resources :looks, only: :show do
+    # collection do
+    #   get :generate_looks
+    # end
     resources :outfit, only: :create
   end
 end

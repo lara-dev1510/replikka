@@ -8,7 +8,11 @@ class PagesController < ApplicationController
     # @looks = Look.all
     user = current_user
     blocked_looks = user.blocked_by
-    @looks = Look.all - blocked_looks
+    if params[:piece]
+      @looks = Piece.find(params[:piece]).generate_looks
+    else
+      @looks = Look.all - blocked_looks
+    end
     # if @looks.empty?
     # end
     # @outfit = xxxx
@@ -34,15 +38,7 @@ class PagesController < ApplicationController
     user = current_user
     @pieces = user.pieces
     if params[:query].present?
-      # @pieces = @pieces.where("name ILIKE ?", "%#{params[:query]}%")
-    #   sql_subquery = <<~SQL
-    #   pieces.name @@ :query
-    #   OR subcategories.name @@ :query
-    #   OR subcategories.color @@ :query
-    #   OR subcategories.fabric @@ :query
-    # SQL
-    # @pieces = @pieces.joins(:subcategory).where(sql_subquery, query: params[:query])
-    @pieces = user.pieces.global_search(params[:query])
+      @pieces = user.pieces.global_search(params[:query])
     end
   end
 

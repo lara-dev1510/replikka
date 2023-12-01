@@ -3,22 +3,21 @@
   <div class="title-meteo">
     <h2>Today's look inspo</h2>
 
-    <div class="ph-item">
       <div class="ph-col-12">
-                <div class="col-sm-8" data-controller='openweather'>
+                <div class="col-sm-8">
                   <div class="card">
                     <div class="meteo-card">
-                      <p> <span data-openweather-target='city'></span>
-                        <img src="" data-openweather-target='icon'>
-                        <span data-openweather-target='temp'></span>
-                        <span data-openweather-target='description'></span>
-                      </p>
+                    <p>
+                      <%= @city %>
+                      <%= image_tag @icon_url %>
+                      <%= @temp %>
+                      <%= @description %>
+                    </p>
                     </div>
                   </div>
                 </div>
           </div>
-        </div>
-    </div>
+      </div>
 
   </div>
 

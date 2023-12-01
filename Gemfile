@@ -53,6 +53,8 @@ gem "sassc-rails"
 gem "cloudinary"
 gem 'acts_as_favoritor'
 gem "pg_search"
+gem "geocoder"
+gem "httparty"
 
 group :development, :test do
   gem "dotenv-rails"

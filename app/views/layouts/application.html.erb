@@ -20,6 +20,8 @@
     <div class="main-content">
       <%= yield %>
     </div>
-    <%= render "shared/navbar" %>
+    <% unless params[:action] == 'home' %>
+      <%= render "shared/navbar" %>
+    <% end %>
   </body>
 </html>

@@ -19,7 +19,7 @@ class LooksController < ApplicationController
 
   def favorites
     user = current_user
-    @favorites = user.all_favorites
+    @favorites = user.all_favorites.order(created_at: :desc)
   end
 
   # def explore

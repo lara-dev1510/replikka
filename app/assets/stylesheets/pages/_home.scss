@@ -32,3 +32,23 @@ i:hover {
 .fa-solid:hover {
   color: $dark-blue;
 }
+
+.img-replikka {
+  height: 130px;
+  padding: 10px;
+}
+
+#span-home{
+  vertical-align: middle;
+  color: $dark-blue;
+  font-size: 48px;
+  padding: 70px;
+}
+
+.btn-flat {
+  color: $white-broke;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $light-blue;
+  transition: $blue-sky-dark 0.3s ease;
+}

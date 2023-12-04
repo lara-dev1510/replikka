@@ -1,7 +1,25 @@
-<div class="pieces-list-item justify-content-center"
-    style="background-color:white;border-radius: 5px;text-align: center;">
-  <label for="piece<%= piece.id %>">
-    <%= cl_image_tag piece.photo.key %>
-    <h6><%= piece.name %></h6>
-  </label>
+<div class="background-list">
+  <div class="pieces-list-item m-1"
+      style="background-color:white;text-align: center;">
+    <label for="piece<%= piece.id %>">
+      <div class="piece-item">
+        <div style="display: flex; height: 100%; align-items: center; justify-content: center;">
+          <%= cl_image_tag piece.photo.key %>
+          <p><%= piece.name %></p>
+        </div>
+        <div class="button-piece">
+          <div style="">
+            <%= link_to "", data: { turbo_method: :patch } do %>
+              <i class="fa-solid fa-shuffle" style="color: $light-blue;"></i>
+            <% end %>
+          </div>
+          <div style="">
+            <%= link_to "", data: { turbo_method: :patch } do %>
+              <i class="fa-solid fa-pen-to-square" style="color: $light-blue;"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </label>
+  </div>
 </div>

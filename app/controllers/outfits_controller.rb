@@ -5,14 +5,10 @@ class OutfitsController < ApplicationController
   # end
 
   def create
-    # raise
     @look = Look.find(params[:look_id])
     @outfit = Outfit.new(confirmed: true, look_id: @look.id)
     # rattacher les pieces au Outfit
-    # attacher user id in schema
-    # @outfit.user = current_user
-
- # @selected_pieces vient du form invisible dans looks/:id/explore
+    #@selected_pieces vient du form invisible dans looks/:id/explore
     @selected_pieces = params[:pieces]
     @selected_pieces.each do |piece|
       @piece = Piece.find(piece)
@@ -34,4 +30,7 @@ class OutfitsController < ApplicationController
   #   # @pieces = @outfit.pieces
   # end
 
+  def index
+    @outfits = Outfit.all
+  end
 end

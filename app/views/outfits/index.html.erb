@@ -1,0 +1,19 @@
+<div class="container">
+  <div  class="row">
+    <div class="d-flex align-items-center">
+      <h4 class="p-1 font-weight-bold"> <%= @outfits.count %></h4><h6> outfits worn since you joined</h6>
+    </div>
+  </div>
+  <div class="row">
+    <% @outfits.each do |outfit| %>
+    <div class="col-md-3 mb-4">
+    <div class="card-trip justify-content-center">
+        <%= cl_image_tag outfit.look.photo.key %>
+        <%# <p>Jan 21, 2023</p> %>
+        <p><%= outfit.updated_at %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

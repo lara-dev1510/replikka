@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
-  before_action :get_weather, only: :today
+  before_action :set_weather, only: :today
 
   def home
   end
@@ -49,11 +49,13 @@ class PagesController < ApplicationController
     params.require(:piece).permit(:name, :user_id)
   end
 
-  def get_weather
-    response = WeatherClient.new(current_user).get_weather
-    @city = response["name"]
-    @temp = response["main"]["temp"].round
-    @icon_url = "https://openweathermap.org/img/wn/#{response["weather"].first["icon"]}.png"
-    @description = response["weather"].first["description"]
+  def set_weather
+    response = WeatherClient.new(current_user).call
+    return unless response
+
+    @city = response['name']
+    @temp = (response.dig('main', 'temp') || 10.0).round # Fallback in case there is an API problem
+    @icon_url = "https://openweathermap.org/img/wn/#{response['weather'].first['icon']}.png"
+    @description = response['weather'].first['description']
   end
 end

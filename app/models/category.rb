@@ -14,4 +14,18 @@ class Category < ApplicationRecord
     { name: "Jumpsuits & playsuits", position: 9 },
     { name: "Suits", position: 10 }
   ]
+
+  CATEGORIES_ORDER = {
+    "Tops & t-shirts" => 1,
+    "Sweaters" => 2,
+    "Outerwear" => 3,
+    "Trousers & leggings" => 4,
+    "Jeans" => 5,
+    "Skirts" => 6,
+    "Shorts" => 7,
+    "Dresses" => 8,
+    "Jumpsuits & playsuits" => 9,
+    "Suits" => 10,
+    "Blazers" => 11
+  }
 end

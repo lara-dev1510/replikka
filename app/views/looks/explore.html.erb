@@ -29,9 +29,10 @@
 
         <form action="/outfits/create" method="POST">
           <input type="text" name='look_id' value='<%= @look.id %>' hidden>
-          <div class="pieces-list">
+          <%# <div class="pieces-list"> %>
+          <div>
             <% @pieces_by_cat.each do |category, array| %>
-            <%= category.name %>
+              <%= category.name %>
               <% piece_index = 0 %>
               <% array.each do |piece| %>
                 <div class="pieces-list-item justify-content-center">
@@ -49,6 +50,7 @@
               <% end %>
             <% end %>
           </div>
+          <%# </div> %>
           <input type="submit" value="Save">
         </form>
 

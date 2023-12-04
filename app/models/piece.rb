@@ -1,6 +1,7 @@
 class Piece < ApplicationRecord
   belongs_to :user
   belongs_to :subcategory
+  has_one :category, through: :subcategory
   has_one_attached :photo
   has_many :outfit_pieces, dependent: :destroy
   has_one :category, through: :subcategory

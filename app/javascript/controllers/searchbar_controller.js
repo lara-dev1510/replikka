@@ -4,11 +4,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["input", "results"]
 
-  connect() {
-    console.log("Hello")
-  }
+  connect() {}
 
   search(event) {
+    
     console.log(event.key)
     // this.event.innerText = " "
     // this.currentTarget.innerText = this.event

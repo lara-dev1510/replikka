@@ -36,10 +36,16 @@ class PagesController < ApplicationController
   end
 
   def generate
-    user = current_user
-    @pieces = user.pieces
-    if params[:query].present?
-      @pieces = user.pieces.global_search(params[:query])
+    @pieces = current_user.pieces
+
+    if query
+      # render searched pieces (with categories)
+      @pieces = @pieces.global_search(query)
+    else
+      # render pieces grouped by category
+      @grouped_pieces = @pieces.joins(:category)
+                               .order('categories.position')
+                               .group_by(&:category)
     end
   end
 
@@ -47,6 +53,10 @@ class PagesController < ApplicationController
 
   def pieces_params
     params.require(:piece).permit(:name, :user_id)
+  end
+
+  def query
+    @query ||= params[:query].presence
   end
 
   def set_weather

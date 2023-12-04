@@ -1,45 +1,22 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-8 my-3" data-controller='searchbar' data-action="keyup->searchbar#search">
-
-     <div data-searchbar-target="input">
-        <%= form_with url: generate_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Type a keyword"
-            %>
-          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-
-      <ul id="results" class="list-group list-group-horizontal" data-searchbar-target="results"></ul>
-    </div>
-
-    <p><strong><%= @pieces.count %></strong> <%= "piece".pluralize(@pieces.count) %></p>
-      <% if @pieces.any? %>
-          <form action="/today">
-            <div class="pieces-list">
-              <% @pieces.each do |piece| %>
-                <div class="pieces-list-item justify-content-center">
-                  <label for="piece<%= piece.id %>">
-                    <%= cl_image_tag piece.photo.key %>
-                    <h6><%= piece.name %></h6>
-                  </label>
-                  <input type="radio" name='piece' id="piece<%= piece.id %>" value="<%= piece.id %>">
-                </div>
-              <% end %>
-            </div>
-            <input type="submit" value="Save">
-          </form>
-          <%# <%= form_for :piece do |f| %>
-              <%# <%= f.collection_radio_buttons(:piece_id, Piece.all, :id, :name) %>
-              <%# <%= f.submit %>
-          <%# <% end %>
-              <%#= link_to "Delete", delete_path(piece), class: "btn btn-outline-danger", data: { turbo_method: :patch } %>
-              <%#= link_to "Add as favorite", favorite_path(piece), class: "btn btn-outline-info", data: { turbo_method: :patch } %>
-      <% else %>
-        <em> Sorry, no pieces found. </em>
+    <div class="col-sm-12 my-3" data-controller='searchbar' data-action="keyup->searchbar#search">
+      <%= form_with url: generate_path,
+                    class: 'w-100',
+                    data: { "searchbar-target": "input" },
+                    method: :get do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control text-center",
+              style: "font-size: 20px;background-color:white;border-radius: 20px;border:0px",
+              placeholder: "Search for a piece"
+          %>
       <% end %>
+    </div>
+    <% if @query %>
+      <%= render 'searched_pieces', pieces: @pieces %>
+    <% else %>
+      <%= render 'grouped_pieces', grouped_pieces: @grouped_pieces %>
+    <% end %>
   </div>
 </div>

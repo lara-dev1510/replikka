@@ -17,3 +17,10 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}

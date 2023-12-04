@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
+  before_action :get_weather, only: :today
 
   def home
   end
@@ -46,5 +47,13 @@ class PagesController < ApplicationController
 
   def pieces_params
     params.require(:piece).permit(:name, :user_id)
+  end
+
+  def get_weather
+    response = WeatherClient.new(current_user).get_weather
+    @city = response["name"]
+    @temp = response["main"]["temp"].round
+    @icon_url = "https://openweathermap.org/img/wn/#{response["weather"].first["icon"]}.png"
+    @description = response["weather"].first["description"]
   end
 end

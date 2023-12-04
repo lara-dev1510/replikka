@@ -6,11 +6,7 @@ class Subcategory < ApplicationRecord
   COLORS = ["Apricot", "Beige", "Black", "Blue", "Brown", "Burgundy", "Coral", "Cream", "Dark green", "Gold", "Green", "Grey", "Khaki", "Light blue", "Lilac", "Mint", "Multicolor", "Mustard", "Navy", "Orange", "Pink", "Purple", "Red", "Rose", "Silver", "Turquoise", "White", "Yellow", "Leopard", "Floral"]
 
   FABRICS = [
-    # { name: "Acrylic", temperature_range: 0..15 },
-    # { name: "Bamboo", temperature_range: 18..30 },
-    # { name: "Canvas", temperature_range: 10..30 },
     { name: "Wool", temperature_range: -10..15 },
-    # { name: "Chiffon", temperature_range: 20..35 },
     { name: "Corduroy", temperature_range: 0..20 }, #velour côtelé
     { name: "Cotton", temperature_range: 0..35 },
     { name: "Denim", temperature_range: 10..25 },
@@ -23,14 +19,8 @@ class Subcategory < ApplicationRecord
     { name: "Lace", temperature_range: 0..35 },
     { name: "Leather", temperature_range: -5..18 },
     { name: "Linen", temperature_range: 20..35 },
-    # { name: "Merino", temperature_range: -10..15 },
-    # { name: "Mesh", temperature_range: 25..40 }, #résille
     { name: "Mohair", temperature_range: -5..15 },
-    # { name: "Neoprene", temperature_range: 10..25 },
     { name: "Nylon", temperature_range: 10..30 },
-    # { name: "Patent leather", temperature_range: 0..20 },
-    # { name: "Polyester", temperature_range: 0..30 },
-    # { name: "Rubber", temperature_range: 0..30 },
     { name: "Satin", temperature_range: 15..30 },
     { name: "Sequin", temperature_range: 15..35 },
     { name: "Silk", temperature_range: 20..35 },
@@ -38,6 +28,16 @@ class Subcategory < ApplicationRecord
     { name: "Tulle", temperature_range: 15..35 },
     { name: "Tweed", temperature_range: -5..15 },
     { name: "Velvet", temperature_range: 0..20 }
+    # { name: "Chiffon", temperature_range: 20..35 },
+    # { name: "Acrylic", temperature_range: 0..15 },
+    # { name: "Bamboo", temperature_range: 18..30 },
+    # { name: "Canvas", temperature_range: 10..30 },
+    # { name: "Merino", temperature_range: -10..15 },
+    # { name: "Mesh", temperature_range: 25..40 }, #résille
+    # { name: "Neoprene", temperature_range: 10..25 },
+    # { name: "Patent leather", temperature_range: 0..20 },
+    # { name: "Polyester", temperature_range: 0..30 },
+    # { name: "Rubber", temperature_range: 0..30 },
     # { name: "Viscose", temperature_range: 15..30 },
   ]
 

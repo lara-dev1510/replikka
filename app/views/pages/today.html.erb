@@ -1,51 +1,38 @@
 
-<div class="container mt-2">
-  <div class="title-meteo">
-    <h2>Today's look inspo</h2>
-
-      <div class="ph-col-12">
-                <div class="col-sm-8">
-                  <div class="card">
-                    <div class="meteo-card">
-                    <p>
-                      <%= @city %>
-                      <%= image_tag @icon_url if @icon_url %>
-                      <%= @temp %>°C
-                      <%= @description %>
-                    </p>
-                    </div>
-                  </div>
-                </div>
-          </div>
-      </div>
-
+<div class="container d-flex flex-column">
+  <div class="meteo-card">
+    <strong><%= @city %></strong>
+    <% if @icon_url %>
+      <%= image_tag @icon_url, style: 'height: 30px;' %>
+    <% end %>
+    <%= @temp %>°C
+    <%= @description %>
   </div>
 
-    <div class="row">
-      <div class="swiper" data-controller="swiper">
-        <div class="swiper-wrapper replikka-swiper">
-          <% @looks.each do |look| %>
-            <% if look.winter? %>
-              <div class="swiper-slide">
-                <div class="card-trip justify-content-center">
-                  <%= link_to explore_look_path(look), class: 'link-to-show-outfit' do %>
-                    <%= cl_image_tag look.photo.key %>
+  <div class="row">
+    <div class="swiper" data-controller="swiper">
+      <div class="swiper-wrapper replikka-swiper">
+        <% @looks.each do |look| %>
+          <% if look.winter? %>
+            <div class="swiper-slide">
+              <div class="card-trip justify-content-center">
+                <%= link_to explore_look_path(look), class: 'link-to-show-outfit' do %>
+                  <%= cl_image_tag look.photo.key %>
+                <% end %>
+                <div class="button-display" data-controller="bookmark-button">
+                  <%= link_to reject_path(look), data: { turbo_method: :patch, turbo: true } do %>
+                    <i class= "fa-solid fa-xmark"></i>
                   <% end %>
-                  <div class="button-display" data-controller="bookmark-button">
-                    <%= link_to reject_path(look), data: { turbo_method: :patch, turbo: true } do %>
-                      <i class= "fa-solid fa-xmark"></i>
-                    <% end %>
-                    <%= link_to favorite_path(look), data: { turbo_method: :patch, turbo: true }  do %>
-                      <i data-action="click->bookmark-button#bookmark" class="fa-regular fa-bookmark icon-card"></i>
-                      <i class="fa-solid fa-bookmark icon-card" data-bookmark-button-target='bookmarked' hidden></i>
-                    <% end %>
-                    <%#= link_to "explore", outfit_path(look.outfits.sample) %>
-                  </div>
+                  <%= link_to favorite_path(look), data: { turbo_method: :patch, turbo: true }  do %>
+                    <i data-action="click->bookmark-button#bookmark" class="fa-regular fa-bookmark icon-card"></i>
+                    <i class="fa-solid fa-bookmark icon-card" data-bookmark-button-target='bookmarked' hidden></i>
+                  <% end %>
                 </div>
               </div>
-            <% end %>
+            </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
+  </div>
 </div>

@@ -10,7 +10,7 @@
                     <p>
                       <%= @city %>
                       <%= image_tag @icon_url %>
-                      <%= @temp %>
+                      <%= @temp %>°C
                       <%= @description %>
                     </p>
                     </div>
@@ -36,8 +36,8 @@
                       <i class= "fa-solid fa-xmark"></i>
                     <% end %>
                     <%= link_to favorite_path(look), data: { turbo_method: :patch, turbo: true }  do %>
-                      <i data-action="click->bookmark-button#bookmark" class="fa-regular fa-bookmark"></i>
-                      <i class="fa-solid fa-bookmark" data-bookmark-button-target='bookmarked' hidden></i>
+                      <i data-action="click->bookmark-button#bookmark" class="fa-regular fa-bookmark icon-card"></i>
+                      <i class="fa-solid fa-bookmark icon-card" data-bookmark-button-target='bookmarked' hidden></i>
                     <% end %>
                     <%#= link_to "explore", outfit_path(look.outfits.sample) %>
                   </div>

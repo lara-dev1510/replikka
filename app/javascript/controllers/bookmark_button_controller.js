@@ -4,7 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   static targets = [
-    'bookmarked'
+    'bookmarked',
+    'unbookmarked'
   ]
 
   connect() {
@@ -17,4 +18,5 @@ export default class extends Controller {
     this.bookmarkedTarget.hidden = false
     console.log(button);
   }
+
 }

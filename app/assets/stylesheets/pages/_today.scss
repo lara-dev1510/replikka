@@ -4,15 +4,21 @@
   position: relative;
 }
 
-// .fa-bookmark {
-//   background-color: $dark-blue;
-//   border-radius: 50%;
-//   padding-top: 8px;
-//   padding-left: 10px;
-//   padding-right: 10px;
-//   padding-bottom: 8px;
-//   color: $white-broke;
-// }
+.icon-favorite {
+  background-color: $dark-blue;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: $white-broke;
+  position: relative;
+  right: -35px;
+  top: -25px;
+}
 
 // .fa-xmark {
 //   background-color: $white-broke;
@@ -24,7 +30,7 @@
 //   color: $dark-blue;
 // }
 
-.card-trip .fa-bookmark {
+.icon-card {
   background: $dark-blue;
   position: absolute;
   right: 60px;

@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   get "/generate", to: "pages#generate", as: :generate
 
   get "/outfits/new", to: "outfits#new"
+  get "outfits/index", to: "outfits#index", as: :outfits
   get "/outfits/:id", to: "outfits#show", as: :outfit
-
   # resources :looks, only: :show do
   #   # collection do
   #   #   get :generate_looks

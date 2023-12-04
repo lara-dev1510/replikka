@@ -1,39 +1,33 @@
-<div data-controller="navbar">
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="container-fluid" >
-      <% if user_signed_in? %>
-        <%= link_to pieces_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "pieces"} " do %>
-          <i class="fa-solid fa-house"></i>
-          <%#= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/LetterR.svg/800px-LetterR.svg.png", class:"img-logo" %>
-        <% end %>
-        <%= link_to generate_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "generate"} " do %>
-          <i class="fa-solid fa-layer-group"></i>
-        <% end %>
-        <%= link_to today_path, class: "nav-link middle-icon #{"active" if controller_name == "pages" && action_name == "today"} " do %>
-          <i class="fa-solid fa-shuffle"></i>
-        <% end %>
-        <%= link_to favorites_path, class: "nav-link #{"active" if controller_name == "looks" && action_name == "favorites"} " do %>
-          <i class="fa-solid fa-bookmark"></i>
-        <% end %>
-        <%= link_to destroy_user_session_path, data: { turbo_method: :delete} do %>
-          <i class="fa-solid fa-user"></i>
-        <% end %>
-      <% else %>
-        <%= link_to "", new_user_session_path, class: "nav-link fa-solid fa-house"%>
-        <%= link_to "", new_user_session_path, class: "fa-solid fa-layer-group" %>
-        <%= link_to "", new_user_session_path, class: "nav-link middle-icon fa-solid fa-shuffle" %>
-        <%= link_to "", new_user_session_path, class: "nav-link fa-solid fa-bookmark" %>
-        <%= link_to "", new_user_session_path, class: "fa-solid fa-user" %>
-      <% end %>
+<% if user_signed_in? %>
+  <div data-controller="navbar">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div class="lateral-navbar d-flex align-items-center justify-content-around"
+             style="width:calc(50vw - 70px);">
+          <%= link_to pieces_path, class: "nav-link navbar-icon #{"active" if controller_name == "pages" && action_name == "pieces"}" do %>
+            <i class="fa-solid fa-house"></i>
+            <%#= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/LetterR.svg/800px-LetterR.svg.png", class:"img-logo" %>
+          <% end %>
+          <%= link_to generate_path, class: "nav-link navbar-icon #{"active" if controller_name == "pages" && action_name == "generate"}" do %>
+            <i class="fa-solid fa-layer-group"></i>
+          <% end %>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-around" style='height: 68px;position:absolute;bottom:0;'>
+          <%= link_to today_path, class: "nav-link middle-icon #{"active" if controller_name == "pages" && action_name == "today"}" do %>
+            <i class="fa-solid fa-shuffle"></i>
+          <% end %>
+          <%= image_tag 'navbar_circle.svg', style:'width:145px;' %>
+        </div>
+        <div class="lateral-navbar d-flex align-items-center justify-content-around"
+             style="width:calc(50vw - 70px);">
+          <%= link_to favorites_path, class: "nav-link navbar-icon #{"active" if controller_name == "looks" && action_name == "favorites"}" do %>
+            <i class="fa-solid fa-bookmark"></i>
+          <% end %>
+          <%= link_to destroy_user_session_path, class: "nav-link navbar-icon", data: { turbo_method: :delete} do %>
+            <i class="fa-solid fa-user"></i>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
-<body>
-
-<div class="navbar">
-
-
-</body>
-</html>
+<% end %>

@@ -63,4 +63,8 @@ class Category < ApplicationRecord
     "Suits" => 10,
     "Blazers" => 11
   }
+
+  def photo_url
+    CATEGORIES.find { |category| category[:name] == name }[:photo_url]
+  end
 end

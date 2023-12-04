@@ -1,0 +1,35 @@
+<% grouped_pieces.each do |category, pieces| %>
+  <div data-controller="pieces">
+    <div data-pieces-target="category"
+          data-action="click->pieces#toggleList"
+          class='m-2 d-flex justify-content-between align-items-center'
+          style='cursor:pointer;padding:10px;border-radius: 10px;background-color:white;'>
+      <span class="w-100 text-overflow "
+            style='font-size: 26px;'>
+        <strong><%= category.name %></strong> (<%= pieces.count %>)
+      </span>
+      <img src='<%= category.photo_url %>'
+            style='height: 100px;margin:-10px 0 -10px 0'>
+    </div>
+
+    <div data-pieces-target="list"
+          class="d-none position-absolute"
+          style="padding-bottom:40px;background-color:#F4F4F4;min-height:calc(100vh - 58px);top:0;right:0;left:0;">
+      <span class="d-flex align-items-center justify-content-between" style='font-size: 26px;'>
+        <i class="fa-solid fa-arrow-left" data-action="click->pieces#toggleList"></i>
+        <strong class="text-center p-5" style="flex:1;"><%= category.name %></strong>
+      </span>
+      <div class="pieces-list">
+        <% pieces.each do |piece| %>
+          <div class="pieces-list-item justify-content-center"
+              style="background-color:white;border-radius: 5px;text-align: center;">
+            <label for="piece<%= piece.id %>">
+              <%= cl_image_tag piece.photo.key %>
+              <h6><%= piece.name %></h6>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

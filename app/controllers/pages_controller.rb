@@ -37,11 +37,16 @@ class PagesController < ApplicationController
 
   def generate
     @pieces = current_user.pieces
-    @pieces = @pieces.global_search(query) if query
 
-    @grouped_pieces = @pieces.joins(:category)
-                             .order('categories.position')
-                             .group_by(&:category)
+    if query
+      # render searched pieces (with categories)
+      @pieces = @pieces.global_search(query)
+    else
+      # render pieces grouped by category
+      @grouped_pieces = @pieces.joins(:category)
+                               .order('categories.position')
+                               .group_by(&:category)
+    end
   end
 
   private

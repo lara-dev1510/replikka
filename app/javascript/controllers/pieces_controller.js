@@ -7,7 +7,6 @@ export default class extends Controller {
 
   toggleList() {
     this.listTarget.classList.toggle('d-none')
-    this.listTarget.classList.add('full-width')
     document.querySelector("[data-controller=searchbar]").classList.toggle('d-none')
     document.querySelectorAll("[data-pieces-target=category]").forEach((category) => {
       category.classList.toggle('d-none')

@@ -10,20 +10,3 @@
     object-position: center;
   }
 }
-
-.pieces-list-item-no-shadow {
-  border-radius: 5px;
-  text-align: center;
-
-  img {
-    height: 150px;
-    width: 100%;
-    object-fit: contain;
-    object-position: center;
-  }
-}
-
-.full-width {
-  width: 100vw !important;
-  transition: all 10s ease;
-}

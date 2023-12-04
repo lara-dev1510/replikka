@@ -5,7 +5,7 @@ class Category < ApplicationRecord
     {
       name: "Tops & t-shirts",
       position: 1,
-      photo_url: 'https://res.cloudinary.com/dcequpnjy/image/upload/v1701710613/tops-PhotoRoom_pfaru2.png'
+      photo_url: 'https://res.cloudinary.com/dcequpnjy/image/upload/v1701714038/tops-PhotoRoom_1_jwjehq.png'
     },
     {
       name: "Sweaters",

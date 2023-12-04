@@ -4,17 +4,16 @@
       <div class="w-100 d-flex align-items-center justify-content-between">
         <div class="lateral-navbar d-flex align-items-center justify-content-around"
              style="width:calc(50vw - 70px);">
-          <%= link_to pieces_path, class: "nav-link navbar-icon #{"active" if controller_name == "pages" && action_name == "pieces"}" do %>
+          <% link_to pieces_path, class: "nav-link navbar-icon #{"active" if controller_name == "pages" && action_name == "pieces"}" do %>
             <i class="fa-solid fa-house"></i>
-            <%#= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/LetterR.svg/800px-LetterR.svg.png", class:"img-logo" %>
           <% end %>
           <%= link_to generate_path, class: "nav-link navbar-icon #{"active" if controller_name == "pages" && action_name == "generate"}" do %>
-            <i class="fa-solid fa-layer-group"></i>
+            <i class="fa-solid fa-shirt"></i>
           <% end %>
         </div>
         <div class="w-100 d-flex align-items-center justify-content-around" style='height: 68px;position:absolute;bottom:0;'>
           <%= link_to today_path, class: "nav-link middle-icon #{"active" if controller_name == "pages" && action_name == "today"}" do %>
-            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
           <% end %>
           <%= image_tag 'navbar_circle.svg', style:'width:145px;' %>
         </div>
@@ -23,7 +22,7 @@
           <%= link_to favorites_path, class: "nav-link navbar-icon #{"active" if controller_name == "looks" && action_name == "favorites"}" do %>
             <i class="fa-solid fa-bookmark"></i>
           <% end %>
-          <%= link_to destroy_user_session_path, class: "nav-link navbar-icon", data: { turbo_method: :delete} do %>
+          <% link_to destroy_user_session_path, class: "nav-link navbar-icon", data: { turbo_method: :delete} do %>
             <i class="fa-solid fa-user"></i>
           <% end %>
         </div>

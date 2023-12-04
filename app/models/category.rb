@@ -20,7 +20,7 @@ class Category < ApplicationRecord
       position: 3,
       photo_url: 'https://res.cloudinary.com/dcequpnjy/image/upload/v1701708936/outerwear-PhotoRoom_f7ef6w.png'
     },
-    { name: "Trousers & leggings",
+    { name: "Trousers",
       position: 4,
       photo_url: 'https://res.cloudinary.com/dcequpnjy/image/upload/v1701708937/trousers-PhotoRoom_cjkrfq.png'
     },
@@ -54,7 +54,7 @@ class Category < ApplicationRecord
     "Tops & t-shirts" => 1,
     "Sweaters" => 2,
     "Outerwear" => 3,
-    "Trousers & leggings" => 4,
+    "Trousers" => 4,
     "Jeans" => 5,
     "Skirts" => 6,
     "Shorts" => 7,
@@ -65,6 +65,6 @@ class Category < ApplicationRecord
   }
 
   def photo_url
-    CATEGORIES.find { |category| category[:name] == name }[:photo_url]
+    CATEGORIES.find { |category| category[:name] == name }&.dig(:photo_url)
   end
 end

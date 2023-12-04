@@ -36,17 +36,24 @@ class LooksController < ApplicationController
     @look = Look.find(params[:id]) # écrire :look_id?
     @potential_pieces = []
     @subcategories = []
-    @subcats = {}
+    @categories = []
+    # @subcats = {}
+
     @look.subcategories.each do |subcategory|
       @subcategories << subcategory
       # @subcats ajouter le hash et mettre dedans les valeurs poru faire @subcats = {subcategory_id: [piece_1, piece_2]}
       @pieces.each do |piece|
         if piece.subcategory == subcategory
           @potential_pieces << piece
+          @categories << piece.category
           # OutfitPiece.create(piece_id: piece.id, outfit_id: outfit.id)
         end
+        @categories_sorted = @categories.sort_by { |cat| cat.position }
       end
     end
+    # @pieces_by_cat = @potential_pieces.group_by { |piece| piece.category.name }
+    @pieces_by_cat = @potential_pieces.group_by(&:category).sort_by { |k, v| k.position }
+    # @pieces_by_cat = @pieces_by_cat_un.sort_by { |cat| Category::CATEGORIES.find { |elem| elem[:name] == cat }.to_h[:position] }.to_h
     # raise
   end
 

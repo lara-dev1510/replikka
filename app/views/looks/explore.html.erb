@@ -26,21 +26,31 @@
       <%= cl_image_tag @look.photo.key %>
     </div>
     <div class="row matching-pieces" data-toggle-target="matchingPieces">
-      <form action="/outfits/create" method="POST">
-        <input type="text" name='look_id' value='<%= @look.id %>' hidden>
-        <div class="pieces-list">
-          <% @potential_pieces.each do |piece| %>
-            <div class="pieces-list-item justify-content-center">
-              <label for="piece<%= piece.id %>">
-                <%= cl_image_tag piece.photo.key %>
-                <h6><%= piece.name %></h6>
-              </label>
-              <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
-            </div>
-          <% end %>
-        </div>
-        <input type="submit" value="Save">
-      </form>
+
+        <form action="/outfits/create" method="POST">
+          <input type="text" name='look_id' value='<%= @look.id %>' hidden>
+          <div class="pieces-list">
+            <% @pieces_by_cat.each do |category, array| %>
+            <%= category.name %>
+              <% piece_index = 0 %>
+              <% array.each do |piece| %>
+                <div class="pieces-list-item justify-content-center">
+                  <label for="piece<%= piece.id %>">
+                    <%= cl_image_tag piece.photo.key %>
+                    <h6><%= piece.name %></h6>
+                  </label>
+                <% if piece_index == 0 %>
+                  <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
+                  <% else %>
+                  <input type="checkbox" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
+                <% end %>
+                <% piece_index += 1 %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <input type="submit" value="Save">
+        </form>
 
       <%# @potential_pieces.each do |piece| %>
         <%# <div class="col-md-3 mb-4"> %>

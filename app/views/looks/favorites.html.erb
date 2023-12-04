@@ -7,12 +7,10 @@
             <%= link_to explore_look_path(Look.find(favorite.favoritable_id)), class: 'link-to-show-outfit' do %>
               <%#= cl_image_tag look.photo.key %>
               <%= cl_image_tag Look.find(favorite.favoritable_id).photo.key %>
+                <%= link_to unfavorite_path(Look.find(favorite.favoritable_id)), data: { turbo_method: :patch }  do %>
+                  <i class="fa-regular fa-bookmark icon-favorite"></i>
+                <% end %>
             <% end %>
-            <div class = "button-display">
-              <%= link_to unfavorite_path(Look.find(favorite.favoritable_id)), data: { turbo_method: :patch }  do %>
-              <i class="fa-regular fa-bookmark"></i>
-              <% end %>
-            </div>
           </div>
         </div>
       <% end %>

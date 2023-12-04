@@ -1,19 +1,19 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
 
-.navbar {
-  padding: 15px;
-}
+// .navbar {
+//   padding: 15px;
+// }
 
 .active > i {
   color: $dark-blue; /* Change to your preferred active color */
@@ -22,3 +22,42 @@
 .img-logo {
   height: 23px;
 }
+
+
+
+.navbar {
+display: flex;
+justify-content: space-around;
+align-items: center;
+position: fixed;
+bottom: 0;
+width: 100%;
+background-color: $white-broke;
+padding: 5px 0;
+}
+
+.navbar a {
+text-align: center;
+padding: 12px;
+text-decoration: none;
+color: $white-broke;
+font-size: 17px;
+}
+
+.navbar a.middle-icon {
+background-color: $white-broke;
+padding: 20px;
+border-radius: 50%;
+border-color: $dark-blue;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transform: translateY(-50%);
+}
+
+// /* Add responsiveness - on screens less than 400px wide, make the navigation links stack vertically */
+// @media screen and (max-width: 400px) {
+// .navbar a:not(:first-child) {display: none;}
+// .navbar a.icon {
+//   float: right;
+//   display: block;
+// }
+// }

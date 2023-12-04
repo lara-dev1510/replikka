@@ -9,7 +9,7 @@
                     <div class="meteo-card">
                     <p>
                       <%= @city %>
-                      <%= image_tag @icon_url %>
+                      <%= image_tag @icon_url if @icon_url %>
                       <%= @temp %>°C
                       <%= @description %>
                     </p>

@@ -4,6 +4,7 @@ class Look < ApplicationRecord
   has_many :look_subcategories, dependent: :destroy
   has_many :subcategories, through: :look_subcategories
   has_many :outfits, dependent: :destroy
+  has_many :categories, through: :subcategories
 
   # def meteo
   #   Look.joins(:subcategories).joins(:categories).where(categories: { name: "Outerwear" })

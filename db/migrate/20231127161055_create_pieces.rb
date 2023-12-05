@@ -4,7 +4,7 @@ class CreatePieces < ActiveRecord::Migration[7.1]
       t.string :name
       t.references :user, null: false, foreign_key: true
       t.references :subcategory, null: false, foreign_key: true
-      t.integer :worn_stat
+      t.integer :worn_stat, default: 0
 
       t.timestamps
     end

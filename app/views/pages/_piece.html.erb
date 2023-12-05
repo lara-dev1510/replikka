@@ -5,13 +5,18 @@
         <div class="d-flex align-items-center justify-content-around" style="width:100px;">
           <%= cl_image_tag piece.photo.key %>
         </div>
-        <div class="flex-grow-1" style="text-align:left;padding:0 20px;"><%= piece.name %></div>
+        <div class="flex-grow-1 align-items-center justify-content-around" style="text-align:left;padding:0 20px;">
+          <%= piece.name %>
+          <p><i>Worn <%= piece.worn_stat %> <%= "time".pluralize(piece.worn_stat) %></i></p></div>
         <div class="d-flex align-items-center justify-content-around" style="width:100px;">
           <%= link_to '/', data: { turbo_method: :patch } do %>
-            <i class="fa-solid fa-pen-to-square text-blue-sky-dark"></i>
+            <%# <i class="fa-solid fa-pen-to-square text-blue-sky-dark"></i> %>
+            <%# <i class="fa-solid fa-tag text-blue-sky-dark"></i> %>
+            <i class="fa-solid fa-pen text-blue-sky-dark"></i>
           <% end %>
           <%= link_to today_path(piece: piece.id), data: { turbo_method: :get } do %>
-            <i class="fa-solid fa-wand-magic-sparkles text-blue-dark"></i>
+            <%# <i class="fa-solid fa-wand-magic-sparkles text-blue-dark"></i> %>
+            <i class="fa-solid fa-layer-group text-blue-dark"></i>
           <% end %>
         </div>
       </div>

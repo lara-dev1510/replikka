@@ -7,18 +7,19 @@ class OutfitsController < ApplicationController
   def create
     @look = Look.find(params[:look_id])
     @outfit = Outfit.new(confirmed: true, look_id: @look.id)
-    # rattacher les pieces au Outfit
-    #@selected_pieces vient du form invisible dans looks/:id/explore
-    @selected_pieces = params[:pieces]
-    @selected_pieces.each do |piece|
-      @piece = Piece.find(piece)
-      outfit_piece = OutfitPiece.new
-      outfit_piece.piece = @piece
-      outfit_piece.outfit = @outfit
-      outfit_piece.save
-    end
-
     if @outfit.save
+      # rattacher les pieces au Outfit
+      #@selected_pieces vient du form invisible dans looks/:id/explore
+      @selected_pieces = params[:pieces]
+      @selected_pieces.each do |piece|
+        @piece = Piece.find(piece)
+        outfit_piece = OutfitPiece.new
+        outfit_piece.piece = @piece
+        outfit_piece.outfit = @outfit
+        if outfit_piece.save
+          @piece.update(worn_stat: @piece.worn_stat + 1 )
+        end
+      end
       redirect_to explore_look_path(@look)
     else
       render :new, status: :unprocessable_entity

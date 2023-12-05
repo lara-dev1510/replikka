@@ -1,10 +1,10 @@
 <div class="container">
   <h2>Your favorites</h2>
-    <div class="row">
+    <div class="grid">
       <% @favorites.each do |favorite| %>
-        <div class="col-md-3 mb-4">
-          <div class="card-trip justify-content-center">
-            <%= link_to explore_look_path(Look.find(favorite.favoritable_id)), class: 'link-to-show-outfit' do %>
+        <div class="col-md-3 mb-4 display-favorites">
+          <div class="card-trip-fav justify-content-center">
+            <%= link_to explore_look_path(Look.find(favorite.favoritable_id)), class: 'link-to-show-outfit-fav' do %>
               <%#= cl_image_tag look.photo.key %>
               <%= cl_image_tag Look.find(favorite.favoritable_id).photo.key %>
                 <%= link_to unfavorite_path(Look.find(favorite.favoritable_id)), data: { turbo_method: :patch }  do %>

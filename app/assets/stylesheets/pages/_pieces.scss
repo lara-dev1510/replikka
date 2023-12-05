@@ -13,6 +13,20 @@ input[type=submit] {
   border-radius: 5px;
 }
 
+.fa-plus {
+  background-size: 20px;
+  color:rgb(76, 74, 74);
+  border: solid 1px grey;
+  border-radius: 50px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 3px;
+  padding-left: 3px;
+  position: relative;
+  top: -33px;
+  left: 295px;
+}
+
 form {
   display: inline-table;
   padding: 10px;

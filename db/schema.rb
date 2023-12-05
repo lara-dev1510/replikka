@@ -111,7 +111,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_110106) do
     t.string "name"
     t.bigint "user_id", null: false
     t.bigint "subcategory_id", null: false
-    t.integer "worn_stat"
+    t.integer "worn_stat", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subcategory_id"], name: "index_pieces_on_subcategory_id"

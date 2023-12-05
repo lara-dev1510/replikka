@@ -7,10 +7,11 @@
                     method: :get do %>
         <%= text_field_tag :query,
               params[:query],
-              class: "form-control text-center",
+              class: "form-control text-center icon",
               style: "font-size: 20px;background-color:white;border-radius: 20px;border:0px",
               placeholder: "Search for a piece"
           %>
+        <i class="fa-regular fa-plus" ></i>
       <% end %>
     </div>
     <% if @query %>

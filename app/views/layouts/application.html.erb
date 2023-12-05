@@ -18,7 +18,8 @@
 
   <body>
     <%= render "shared/flashes" %>
-    <div class="main-content">
+    <div class="main-content"> <%#magic%>
+      <% render "shared/background_svg" %>
       <%= yield %>
     </div>
     <% unless params[:action] == 'home' %>

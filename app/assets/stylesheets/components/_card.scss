@@ -73,3 +73,19 @@
   opacity: .7;
   margin: 0;
 }
+
+.statistics-card {
+  // height: 100%;
+  // width: 100%;
+  font-size: 12px;
+  margin: 0;
+  background-color: $dark-beige;
+  padding: 16px;
+  border-radius: 5px;
+  margin: 16px;
+  text-align: center;
+}
+
+.statistics-card p {
+  color: $black;
+}

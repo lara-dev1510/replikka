@@ -4,30 +4,36 @@
   </div>
 
   <div class="d-flex">
-    <div class="statistics-card">
-      <p>30 outfits generated</p>
+    <div class="statistics-card statistics-card-main">
+      <p><strong>30</strong> outfits generated</p>
     </div>
     <div>
       <div class="statistics-card">
-        <p>30% of pieces worn</p>
+        <p><strong>30%</strong> of pieces worn</p>
       </div>
       <div class="statistics-card">
-        <p>5 pieces never worn</p>
+        <p><strong>5</strong> pieces never worn</p>
       </div>
     </div>
   </div>
 
   <div>
-    <div class="row">
-    <h1>Most Worn</h1>
+    <div class="worn_padding">
+    <h2>Most Worn</h2>
+    <div class="worn_container">
       <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
       <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
       <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
       <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
     </div>
+    </div>
 
-    <div>
-    <h1>Least Worn</h1>
+    <div class="row">
+    <h2>Least Worn</h2>
+      <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
+      <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
+      <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
+      <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
     </div>
   </div>
 

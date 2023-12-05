@@ -1,19 +1,21 @@
 <div class="container">
-  <div  class="row">
-    <div class="d-flex align-items-center">
-      <h4 class="p-1 font-weight-bold"> <%= @outfits.count %></h4><h6> outfits worn since you joined</h6>
+  <% @outfits.each do |week, outfits| %>
+    <div>
+      <% first_day_of_week = outfits.first.updated_at.to_date.beginning_of_week(:monday) %>
+      <% last_day_of_week = first_day_of_week + 6.days %>
+      <h3>Week <%= week %></h3>
+      <p>(<%= first_day_of_week%> - <%= last_day_of_week %>)</p>
     </div>
-  </div>
-  <div class="row">
-    <% @outfits.each do |outfit| %>
-    <div class="col-md-3 mb-4">
-    <div class="card-trip justify-content-center">
-        <%= cl_image_tag outfit.look.photo.key %>
-        <%# <p>Jan 21, 2023</p> %>
-        <p><%= outfit.updated_at %></p>
-        </div>
+    <div class="swiper outfits-swiper" data-controller="outfitsswiper">
+      <div class="swiper-wrapper">
+        <% outfits.each do |outfit| %>
+          <div class="swiper-slide outfits-swiper-slide">
+            <%= cl_image_tag outfit.look.photo.key %>
+            <% weekday = Date::DAYNAMES[outfit.updated_at.to_datetime.cwday] %>
+            <p><%= weekday %></p>
+          </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>

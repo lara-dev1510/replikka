@@ -4,8 +4,8 @@
       <div class="w-100 d-flex align-items-center justify-content-between">
         <div class="lateral-navbar d-flex align-items-center justify-content-around"
              style="width:calc(50vw - 70px);">
-          <% link_to pieces_path, class: "nav-link navbar-icon #{"active" if controller_name == "pages" && action_name == "pieces"}" do %>
-            <i class="fa-solid fa-house"></i>
+          <%= link_to outfits_path, class: "nav-link navbar-icon #{"active" if controller_name == "outfits" && action_name == "index"}" do %>
+            <i class="fa-solid fa-chart-simple"></i>
           <% end %>
           <%= link_to generate_path, class: "nav-link navbar-icon #{"active" if controller_name == "pages" && action_name == "generate"}" do %>
             <i class="fa-solid fa-shirt"></i>
@@ -22,7 +22,7 @@
           <%= link_to favorites_path, class: "nav-link navbar-icon #{"active" if controller_name == "looks" && action_name == "favorites"}" do %>
             <i class="fa-solid fa-bookmark"></i>
           <% end %>
-          <% link_to destroy_user_session_path, class: "nav-link navbar-icon", data: { turbo_method: :delete} do %>
+          <%= link_to destroy_user_session_path, class: "nav-link navbar-icon", data: { turbo_method: :delete} do %>
             <i class="fa-solid fa-user"></i>
           <% end %>
         </div>

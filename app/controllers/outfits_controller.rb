@@ -33,7 +33,7 @@ class OutfitsController < ApplicationController
 
   def index
     # @outfits = Outfit.all
-    @outfits = Outfit.all.group_by{ |outfit| outfit.updated_at.to_datetime.cweek }
+    @outfits = Outfit.all.group_by{ |outfit| outfit.updated_at.to_datetime.cweek }.sort.reverse!
     # @outfits_weekday = Outfit.all.group_by{ |outfit| outfit.updated_at.to_datetime.cwday }
   end
 end

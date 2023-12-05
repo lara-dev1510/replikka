@@ -1,4 +1,3 @@
-
 <div class="container mt-3" data-controller="toggle">
   <div class="top-show">
     <div class="button-back">
@@ -25,34 +24,39 @@
     <div class="thumbnail hidden" data-toggle-target="thumbnail">
       <%= cl_image_tag @look.photo.key %>
     </div>
-    <div class="row matching-pieces" data-toggle-target="matchingPieces">
-
-        <form action="/outfits/create" method="POST">
-          <input type="text" name='look_id' value='<%= @look.id %>' hidden>
-          <%# <div class="pieces-list"> %>
+    <div class="row matching-pieces" data-toggle-target="matchingPieces" data-controller="outfitsswiper">
+      <form action="/outfits/create" method="POST">
+        <input type="text" name='look_id' value='<%= @look.id %>' hidden>
           <div>
-            <% @pieces_by_cat.each do |category, array| %>
-              <%= category.name %>
-              <% piece_index = 0 %>
-              <% array.each do |piece| %>
+                <% @pieces_by_cat.each do |category, array| %>
+            <div class="swiper outfits-swiper">
+              <div class="swiper-wrapper">
                 <div class="pieces-list-item justify-content-center">
-                  <label for="piece<%= piece.id %>">
-                    <%= cl_image_tag piece.photo.key %>
-                    <h6><%= piece.name %></h6>
-                  </label>
-                <% if piece_index == 0 %>
-                  <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
-                  <% else %>
-                  <input type="checkbox" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
+                  <%= category.name %>
+                  <% piece_index = 0 %>
+                  <% array.each do |piece| %>
+                    <div class="swiper-slide outfits-swiper-slide">
+                      <label for="piece<%= piece.id %>">
+                        <%= cl_image_tag piece.photo.key %>
+                        <h6><%= piece.name %></h6>
+                      </label>
+                      <% if piece_index == 0 %>
+                        <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
+                      <% else %>
+                        <input type="checkbox" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
+                      <% end %>
+                      <% piece_index += 1 %>
+                    </div>
+                  <% end %>
                 <% end %>
-                <% piece_index += 1 %>
-                </div>
-              <% end %>
-            <% end %>
+              </div>
+            </div>
           </div>
-          <%# </div> %>
-          <input type="submit" value="Save">
-        </form>
+        <input type="submit" value="Save">
+      </form>
+    </div>
+  </div>
+</div>
 
       <%# @potential_pieces.each do |piece| %>
         <%# <div class="col-md-3 mb-4"> %>
@@ -61,11 +65,12 @@
           <%# </div> %>
         <%# </div> %>
       <%# end %>
-    </div>
-  </div>
-    <div class="slider" >
-    <input data-toggle-target="slider" data-action="input->toggle#slide" type="range" value="0">
-    <span>Confirm</span>
-</div>
-</div>
-</div>
+    <%# <div class="slider" >
+      <input data-toggle-target="slider" data-action="input->toggle#slide" type="range" value="0">
+      <span>Confirm</span>
+    </div> %>
+
+
+      <%# </div>
+    <div class="swiper-pagination outfits-pagination"></div>
+    </div> %>

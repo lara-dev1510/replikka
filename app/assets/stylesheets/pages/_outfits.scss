@@ -1,6 +1,7 @@
 .outfits-swiper {
   width: 100%;
   height: 100%;
+  padding-bottom: 20px;
 }
 
 .outfits-swiper-slide {
@@ -13,11 +14,35 @@
   height: 300px;
 }
 
+.outfits-swiper-slide > p {
+  // z-index: 1000;
+  position: absolute;
+  bottom: 0px;
+  color: $white-broke;
+}
+
 .outfits-swiper-slide img {
   display: block;
-  width: 200px;
+  width: 100%;
   height: 300px;
   object-fit: cover;
   object-position: center;
   border-radius: 16px;
+  position: relative;
+}
+
+.history-weeks {
+  display: flex;
+  align-items: center;
+  p {
+    color: $blue-sky-dark;
+  }
+}
+
+.outfits-pagination {
+  bottom: -4px!important;
+}
+
+.specific-index {
+  margin-bottom: 55px;
 }

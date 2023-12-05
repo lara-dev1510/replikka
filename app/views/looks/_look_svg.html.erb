@@ -1,0 +1,16 @@
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 361 640">
+  <path fill="#D9D9D9" d="M56.063 73.57C99.502-20.68 129.046-24.518 263.344 62.9c134.297 87.418 126.054 338.84 0 473.87-126.055 135.03-158.692 74.75-207.28 0-48.59-74.75-73.042-304.716 0-463.2Z"/>
+  <path fill="url(#a-<%= look.id %>)" d="M56.063 73.57C99.502-20.68 129.046-24.518 263.344 62.9c134.297 87.418 126.054 338.84 0 473.87-126.055 135.03-158.692 74.75-207.28 0-48.59-74.75-73.042-304.716 0-463.2Z"/>
+  <path fill="#D9D9D9" d="M46.72 84.24c44.057-96.39 74.022-100.315 210.233-10.913 136.21 89.402 127.85 346.529 0 484.623S96 634.396 46.719 557.95c-49.28-76.446-74.082-311.631 0-473.71Z"/>
+  <path fill="url(#b-<%= look.id %>)" d="M46.72 84.24c44.057-96.39 74.022-100.315 210.233-10.913 136.21 89.402 127.85 346.529 0 484.623S96 634.396 46.719 557.95c-49.28-76.446-74.082-311.631 0-473.71Z"/>
+  <defs>
+    <pattern id="a-<%= look.id %>" width="1" height="1" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#c-<%= look.id %>" transform="matrix(.00165 0 0 .00094 -.085 0)"/>
+    </pattern>
+    <pattern id="b-<%= look.id %>" width="1" height="1" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#look-<%= look.id %>" transform="matrix(.00166 0 0 .00094 -.209 0)"/>
+    </pattern>
+    <image xlink:href="data:image/jpeg;base64,<%= look.base_64_picture %>" id="look-<%= look.id %>" width="854" height="1068"/>
+
+  </defs>
+</svg>

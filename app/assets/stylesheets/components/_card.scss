@@ -92,10 +92,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    background-color: $darker-beige;
+    }
 }
 
 .statistics-card p {
-  color: $black;
+  color: $light-beige;
 }
 
 .statistics-card-main p {

@@ -153,9 +153,9 @@ user = User.find_by(first_name: "Lara")
         outfit_piece = OutfitPiece.new
         outfit_piece.piece = @piece
         outfit_piece.outfit = @outfit
-        if outfit_piece.save
-          @piece.update(worn_stat: @piece.worn_stat + 1 )
-        end
+        # if outfit_piece.save
+        #   @piece.update(worn_stat: @piece.worn_stat + 1 )
+        # end
       end
       @outfit.update(created_at: Date.today + day_counter, updated_at: Date.today  + day_counter)
       day_counter += -1

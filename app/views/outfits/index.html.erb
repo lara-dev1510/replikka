@@ -1,10 +1,13 @@
-<div class="container specific-index">
+<div class="container mt-2 d-flex flex-column specific-index">
+  <div class="grid-today tab-underlined active" >
+    <h2>History</h2>
+  </div>
   <% @outfits.each do |week, outfits| %>
     <div>
       <% first_day_of_week = outfits.first.updated_at.to_date.beginning_of_week(:monday) %>
       <% last_day_of_week = first_day_of_week + 6.days %>
       <div class="history-weeks">
-        <h3>Week <%= week %></h3>
+        <p><strong>Week <%= week %></strong></p>
         <p class="ps-3">
           <%= first_day_of_week.day%>/<%= first_day_of_week.month%> - <%= last_day_of_week.day %>/<%= last_day_of_week.month%>
         </p>

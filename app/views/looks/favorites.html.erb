@@ -1,28 +1,31 @@
-<div class="container">
-  <h2>Your favorites</h2>
-    <div class="grid">
-      <% @favorites.each do |favorite| %>
-        <div class="col-md-3 mb-4 display-favorites">
-          <div class="card-trip-fav justify-content-center">
-            <%= link_to explore_look_path(Look.find(favorite.favoritable_id)), class: 'link-to-show-outfit-fav' do %>
-              <%#= cl_image_tag look.photo.key %>
-              <%= cl_image_tag Look.find(favorite.favoritable_id).photo.key %>
-                <%= link_to unfavorite_path(Look.find(favorite.favoritable_id)), data: { turbo_method: :patch }  do %>
-                  <i class="fa-regular fa-bookmark icon-favorite"></i>
-                <% end %>
-            <% end %>
-          </div>
+<div class="container mt-2 d-flex flex-column">
+
+  <div class="grid-today tab-underlined active" >
+    <h2> Bookmarks </h2>
+  </div>
+  <div class="grid">
+    <% @favorites.each do |favorite| %>
+      <div class="col-md-3 mb-4 display-favorites">
+        <div class="card-trip-fav justify-content-center">
+          <%= link_to explore_look_path(Look.find(favorite.favoritable_id)), class: 'link-to-show-outfit-fav' do %>
+            <%#= cl_image_tag look.photo.key %>
+            <%= cl_image_tag Look.find(favorite.favoritable_id).photo.key %>
+              <%= link_to unfavorite_path(Look.find(favorite.favoritable_id)), data: { turbo_method: :patch }  do %>
+                <i class="fa-regular fa-bookmark icon-favorite"></i>
+              <% end %>
+          <% end %>
         </div>
-      <% end %>
-                <%# <div class="button-display"> %>
-                  <%#= link_to favorite_path(look), data: { turbo_method: :patch }  do %>
-                    <%# <i class="fa-regular fa-bookmark"></i> %>
-                  <%# end %>
-                  <%#= link_to "explore", outfit_path(look.outfits.sample) %>
-                  <%#= link_to "explore", root_path %>
-                <%# </div> %>
-            <%# </div> %>
-            <%# </div> %>
-          <%# end %>
-    </div>
+      </div>
+    <% end %>
+              <%# <div class="button-display"> %>
+                <%#= link_to favorite_path(look), data: { turbo_method: :patch }  do %>
+                  <%# <i class="fa-regular fa-bookmark"></i> %>
+                <%# end %>
+                <%#= link_to "explore", outfit_path(look.outfits.sample) %>
+                <%#= link_to "explore", root_path %>
+              <%# </div> %>
+          <%# </div> %>
+          <%# </div> %>
+        <%# end %>
+  </div>
 </div>

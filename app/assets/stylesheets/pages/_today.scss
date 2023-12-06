@@ -83,6 +83,12 @@
       left: 0;
       right: 0;
     }
+    // .button-display a:focus,
+    .button-display a:hover i.fa-xmark
+     {
+      background-color: $dark-blue;
+      color: white;
+    }
     .icon-card,
     .fa-xmark {
       position: unset;

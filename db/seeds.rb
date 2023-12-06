@@ -126,9 +126,10 @@ end
 day_counter = -1
 user = User.find_by(first_name: "Lara")
 @pieces = user.pieces
+look_count = Look.all.count
 
 10.times do
-  @look = (Look.all - @used_looks).sample
+  @look = (Look.all[10..(look_count - 1)] - @used_looks).sample
   @used_looks << @look
   @outfit = Outfit.new(confirmed: true, look_id: @look.id)
   # @selected_pieces = []

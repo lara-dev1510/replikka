@@ -7,6 +7,7 @@ export default class extends Controller {
 
   toggleList() {
     this.listTarget.classList.toggle('d-none')
+    document.querySelector(".grid-today").classList.toggle('d-none')
     document.querySelector("[data-controller=searchbar]").classList.toggle('d-none')
     document.querySelectorAll("[data-pieces-target=category]").forEach((category) => {
       category.classList.toggle('d-none')

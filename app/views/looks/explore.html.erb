@@ -1,25 +1,21 @@
 <div class="container mt-2" data-controller="toggle">
-  <div class="tab-underlined active details-image" >
-    <div>
-      <div class="button-back">
-        <%= link_to today_path do %>
-          <h5><i class="fa-solid fa-arrow-right fa-rotate-180"></i></h5>
-        <% end %>
+  <div class="tab-underlined active details-image">
+    <div class="button-back">
+      <%= link_to today_path do %>
+        <h5><i class="fa-solid fa-arrow-right fa-rotate-180"></i></h5>
+      <% end %>
       <h2> Look details </h2>
-      </div>
     </div>
-    <div class="thumbnail">
-      <%= cl_image_tag @look.photo.key %>
+    <div class="thumbnail"
+          data-toggle-target="thumbnail"
+          data-action="click->toggle#switchDisplay">
+      <%= cl_image_tag @look.photo.key, class: 'h-100', style: 'max-width:90%;' %>
     </div>
   </div>
   <div class="top-show">
-    <%# <div class="button-switch" data-action="click->toggle#switchDisplay" data-toggle-target="title">Look</div> %>
   </div>
   <form class="w-100 d-block" action="/outfits/create" method="POST">
     <div class="look-details">
-      <%# <div class="thumbnail hidden" data-toggle-target="thumbnail"> %>
-        <%#= cl_image_tag @look.photo.key %>
-      <%# </div> %>
       <div class="row matching-pieces" data-controller='explore' data-toggle-target="matchingPieces">
         <input type="text" name='look_id' value='<%= @look.id %>' hidden>
         <% @pieces_by_cat.each do |category, pieces| %>

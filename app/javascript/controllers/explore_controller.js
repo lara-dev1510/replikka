@@ -3,10 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="explore"
 export default class extends Controller {
 
-  connect() {
-    console.log('yo');
-    console.log(this.categoryTargets);
-  }
+  connect() {}
 
   checkChecked(event) {
     const card = event.currentTarget

@@ -11,7 +11,6 @@
 require "open-uri"
 require "csv"
 
-
 puts "Cleaning database..."
 # DEPENDENT destroys the rest?
 Outfit.destroy_all
@@ -119,3 +118,48 @@ CSV.foreach(filepath_pieces, headers: :first_row) do |row|
   piece.save
   puts "✅ Created pieces with subcategories #{piece.id}"
 end
+
+@used_looks = []
+day_counter = -1
+user = User.find_by(first_name: "Lara")
+@pieces = user.pieces
+
+10.times do
+  @look = (Look.all - @used_looks).sample
+  @used_looks << @look
+  @outfit = Outfit.new(confirmed: true, look_id: @look.id)
+  # @selected_pieces = []
+    if @outfit.save
+
+      @potential_pieces = []
+      # @subcategories = []
+      @look.subcategories.each do |subcategory|
+        # @subcategories << subcategory
+        @pieces.each do |piece|
+          if (piece.subcategory.color == subcategory.color && piece.subcategory.name == subcategory.name)
+            @potential_pieces << piece
+            # OutfitPiece.create(piece_id: piece.id, outfit_id: outfit.id)
+          end
+        end
+      end
+
+      # @potential_pieces.each do |selection|
+        # @selected_pieces << selection.sample
+      # end
+
+      @potential_pieces.each do |piece|
+      # @selected_pieces.each do |piece|
+        @piece = Piece.find(piece.id)
+        outfit_piece = OutfitPiece.new
+        outfit_piece.piece = @piece
+        outfit_piece.outfit = @outfit
+        if outfit_piece.save
+          @piece.update(worn_stat: @piece.worn_stat + 1 )
+        end
+      end
+      @outfit.update(created_at: Date.today + day_counter, updated_at: Date.today  + day_counter)
+      day_counter += -1
+    end
+  @outfit.save!
+end
+puts 'Finished creating outfits!'

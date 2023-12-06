@@ -1,15 +1,15 @@
-<div class="container">
-  <div>
-
+<div class="container mt-2 d-flex flex-column specific-index">
+  <div class="grid-today tab-underlined active" >
+    <h2> Statistics </h2>
   </div>
 
   <div class="d-flex">
     <div class="statistics-card statistics-card-main">
-      <p><strong>30</strong> outfits generated</p>
+      <p><strong>30</strong> outfits generated </p>
     </div>
     <div>
       <div class="statistics-card">
-        <p><strong>30%</strong> of pieces worn</p>
+        <p><strong>30%</strong> of wardrobe worn</p>
       </div>
       <div class="statistics-card">
         <p><strong>5</strong> pieces never worn</p>
@@ -19,21 +19,23 @@
 
   <div>
     <div class="worn_padding">
-    <h2>Most Worn</h2>
-    <div class="worn_container">
-      <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
-      <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
-      <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
-      <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
-    </div>
+      <h2>Most Worn</h2>
+      <div class="worn_container">
+        <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
+        <%= cl_image_tag Piece.all[1..3].sample.photo.key, class: "thumbnail-rounded" %>
+        <%= cl_image_tag Piece.all[4..6].sample.photo.key, class: "thumbnail-rounded" %>
+        <%= cl_image_tag Piece.all[7..12].sample.photo.key, class: "thumbnail-rounded" %>
+      </div>
     </div>
 
-    <div class="row">
-    <h2>Least Worn</h2>
-      <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
-      <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
-      <%= cl_image_tag Piece.first.photo.key, class: "thumbnail-rounded" %>
-      <%= cl_image_tag Piece.last.photo.key, class: "thumbnail-rounded" %>
+    <div class="worn_padding">
+      <h2>Least Worn</h2>
+      <div class="worn_container">
+        <%= cl_image_tag Piece.all[16..18].sample.photo.key, class: "thumbnail-rounded" %>
+        <%= cl_image_tag Piece.all[19..22].sample.photo.key, class: "thumbnail-rounded" %>
+        <%= cl_image_tag Piece.all[23..25].sample.photo.key, class: "thumbnail-rounded" %>
+        <%= cl_image_tag Piece.all[26..30].sample.photo.key, class: "thumbnail-rounded" %>
+      </div>
     </div>
   </div>
 

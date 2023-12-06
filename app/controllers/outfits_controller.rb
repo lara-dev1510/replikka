@@ -20,7 +20,8 @@ class OutfitsController < ApplicationController
           @piece.update(worn_stat: @piece.worn_stat + 1 )
         end
       end
-      redirect_to explore_look_path(@look)
+      # redirect_to explore_look_path(@look)
+      redirect_to outfits_path
     else
       render :new, status: :unprocessable_entity
     end

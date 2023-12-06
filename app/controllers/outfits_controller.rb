@@ -20,7 +20,8 @@ class OutfitsController < ApplicationController
           @piece.update(worn_stat: @piece.worn_stat + 1 )
         end
       end
-      redirect_to explore_look_path(@look)
+      # redirect_to explore_look_path(@look)
+      redirect_to outfits_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +34,7 @@ class OutfitsController < ApplicationController
 
   def index
     # @outfits = Outfit.all
-    @outfits = Outfit.all.group_by{ |outfit| outfit.updated_at.to_datetime.cweek }
+    @outfits = Outfit.all.group_by{ |outfit| outfit.updated_at.to_datetime.cweek }.sort.reverse!
     # @outfits_weekday = Outfit.all.group_by{ |outfit| outfit.updated_at.to_datetime.cwday }
   end
 end

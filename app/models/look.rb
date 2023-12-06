@@ -1,3 +1,5 @@
+require "open-uri"
+
 class Look < ApplicationRecord
   has_one_attached :photo
   acts_as_favoritable
@@ -18,5 +20,9 @@ class Look < ApplicationRecord
     end
     return false
     # true
+  end
+
+  def base_64_picture
+    Base64.encode64(URI.open(photo.url).read)
   end
 end

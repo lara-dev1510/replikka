@@ -1,25 +1,29 @@
-<div class="container">
-  <% if @outfits.empty? %>
-  <h2>No outfits yet. Create your first outfit! Explore looks and select one <i class="fa-solid fa-wand-magic-sparkles"></i></h2>
-  <% else %>
-    <% @outfits.each do |week, outfits| %>
-      <div>
-        <% first_day_of_week = outfits.first.updated_at.to_date.beginning_of_week(:monday) %>
-        <% last_day_of_week = first_day_of_week + 6.days %>
-        <h3>Week <%= week %></h3>
-        <p>(<%= first_day_of_week%> - <%= last_day_of_week %>)</p>
+<div class="container mt-2 d-flex flex-column specific-index">
+  <div class="grid-today tab-underlined active" >
+    <h2>History</h2>
+  </div>
+  <% @outfits.each do |week, outfits| %>
+    <div>
+      <% first_day_of_week = outfits.first.updated_at.to_date.beginning_of_week(:monday) %>
+      <% last_day_of_week = first_day_of_week + 6.days %>
+      <div class="history-weeks">
+        <p><strong>Week <%= week %></strong></p>
+        <p class="ps-3">
+          <%= first_day_of_week.day%>/<%= first_day_of_week.month%> - <%= last_day_of_week.day %>/<%= last_day_of_week.month%>
+        </p>
       </div>
-      <div class="swiper outfits-swiper" data-controller="outfitsswiper">
-        <div class="swiper-wrapper">
-          <% outfits.each do |outfit| %>
-            <div class="swiper-slide outfits-swiper-slide">
-              <%= cl_image_tag outfit.look.photo.key %>
-              <% weekday = Date::DAYNAMES[outfit.updated_at.to_datetime.cwday] %>
-              <p><%= weekday %></p>
-            </div>
-          <% end %>
-        </div>
+    </div>
+    <div class="swiper outfits-swiper" data-controller="outfitsswiper">
+      <div class="swiper-wrapper">
+        <% outfits.sort_by{ |outfit |outfit.updated_at.to_datetime.cwday }.each do |outfit| %>
+          <div class="swiper-slide outfits-swiper-slide">
+            <%= cl_image_tag outfit.look.photo.key %>
+            <% weekday = Date::DAYNAMES[outfit.updated_at.to_datetime.cwday] %>
+            <p><%= weekday %></p>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    <div class="swiper-pagination outfits-pagination"></div>
+    </div>
   <% end %>
 </div>

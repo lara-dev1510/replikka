@@ -8,15 +8,12 @@ export default class extends Controller {
     'unbookmarked'
   ]
 
-  connect() {
-    console.log("hello")
-  }
+  connect() {}
 
   bookmark(event) {
     const button = event.currentTarget
     button.hidden = true
     this.bookmarkedTarget.hidden = false
-    console.log(button);
   }
 
 }

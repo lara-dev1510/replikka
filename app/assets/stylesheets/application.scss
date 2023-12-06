@@ -16,7 +16,6 @@
   height: calc(100vh - 68px);
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: $light-beige;
 }
 
 .text-overflow {
@@ -32,4 +31,10 @@
 
 .text-blue-sky-dark {
   color: $blue-sky-dark;
+}
+
+body {
+  background-image: asset-url('background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -12,7 +12,7 @@
 .thumbnail {
   display: flex;
   justify-content: center;
-  width: 25%;
+  width: 60px;
 
   &.hidden {
     display: none;
@@ -21,6 +21,16 @@
 
 .thumbnail > img {
   width: 80%;
+}
+.full_page_image {
+  position: absolute;
+  left: 0;
+  height: calc(100vh - 90px);
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .matching-pieces {
@@ -31,7 +41,6 @@
 
 .piece-swipe-card {
   overflow: hidden;
-  // background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 200px;
 }
@@ -41,13 +50,6 @@
   width: 100%;
   object-fit: contain;
   border-radius: 5px;
-}
-
-
-.top-show {
-  // display: flex;
-  // justify-content: center; /* Center horizontally */
-  // align-items: center; /* Center vertically (if needed) */
 }
 
 .hidden {

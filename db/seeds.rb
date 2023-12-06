@@ -102,6 +102,8 @@ CSV.foreach(filepath_looks_subcategories, headers: :first_row) do |row|
   # puts "✅ Added subcategories to looks #{look_subcategory.id}"
 end
 
+piece_number = 1
+
 CSV.foreach(filepath_pieces, headers: :first_row) do |row|
   item = Subcategory::ITEMS.find{ |item| item[:name] == row['item'] }
   fabric = Subcategory::FABRICS.find{ |item| item[:name] == row['fabric'] }
@@ -116,16 +118,18 @@ CSV.foreach(filepath_pieces, headers: :first_row) do |row|
   file = URI.open(row['image'])
   piece.photo.attach(io: file, filename: "#{piece.name}.png", content_type: "image/jpeg")
   piece.save
-  puts "✅ Created pieces with subcategories #{piece.id}"
+  puts "✅ Created piece #{piece_number} with its specific subcategories and id #{piece.id}"
+  piece_number +=1
 end
 
 @used_looks = []
 day_counter = -1
 user = User.find_by(first_name: "Lara")
 @pieces = user.pieces
+look_count = Look.all.count
 
 10.times do
-  @look = (Look.all - @used_looks).sample
+  @look = (Look.all[10..(look_count - 1)] - @used_looks).sample
   @used_looks << @look
   @outfit = Outfit.new(confirmed: true, look_id: @look.id)
   # @selected_pieces = []

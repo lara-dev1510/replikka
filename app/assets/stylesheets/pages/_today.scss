@@ -175,7 +175,29 @@ p {
   }
 }
 
-.magic {
+.magic-pattern-2 {
+  width: 70px;
+  height: 70px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -38px;
+  left: 50px;
+  z-index: 0;
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.hello {
   width: 100%;
   display: inline-flex;
   justify-content: center;

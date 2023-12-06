@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     else
       @looks = Look.all - blocked_looks
     end
-    @looks = @looks.shuffle
+    # @looks = @looks.shuffle
     # if @looks.empty?
     # end
     # @outfit = xxxx

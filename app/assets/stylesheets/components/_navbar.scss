@@ -3,7 +3,7 @@
 }
 
 .active > i {
-  color: $blue-sky-dark;
+  color: $darker-beige;
 }
 
 
@@ -24,7 +24,7 @@ z-index: 2;
 }
 
 .lateral-navbar {
-  background-color: $dark-blue;
+  background-color: $white;
   z-index: 2;
 }
 
@@ -37,7 +37,7 @@ font-size: 17px;
 }
 
 .navbar a.navbar-icon {
-  color: white;
+  color: $beige;
   padding: 20px;
   border: 0px;
 }
@@ -61,8 +61,8 @@ font-size: 17px;
 }
 
 a.nav-link.middle-icon.active {
-  background-color: #FFFAF5;
-  color: #a2afe0;
+  background-color: $white-broke;
+  color: $darker-beige;
   // font-weight: lighter;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

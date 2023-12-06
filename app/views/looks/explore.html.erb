@@ -1,36 +1,43 @@
-<div class="container mt-3" data-controller="toggle">
-  <div class="top-show">
-    <div class="button-back">
-      <%= link_to today_path do %>
-        <h5><i class="fa-solid fa-arrow-right fa-rotate-180"></i></h5>
-      <% end %>
+<div class="container mt-2" data-controller="toggle">
+  <div class="tab-underlined active details-image" >
+    <div>
+      <div class="button-back">
+        <%= link_to today_path do %>
+          <h5><i class="fa-solid fa-arrow-right fa-rotate-180"></i></h5>
+        <% end %>
+      <h2> Look details </h2>
+      </div>
     </div>
-    <div class="button-switch" data-action="click->toggle#switchDisplay" data-toggle-target="title">Look</div>
+    <div class="thumbnail">
+      <%= cl_image_tag @look.photo.key %>
+    </div>
+  </div>
+  <div class="top-show">
+    <%# <div class="button-switch" data-action="click->toggle#switchDisplay" data-toggle-target="title">Look</div> %>
   </div>
   <form class="w-100 d-block" action="/outfits/create" method="POST">
     <div class="look-details">
-      <div class="thumbnail hidden" data-toggle-target="thumbnail">
-        <%= cl_image_tag @look.photo.key %>
-      </div>
-      <div class="row matching-pieces" data-toggle-target="matchingPieces">
+      <%# <div class="thumbnail hidden" data-toggle-target="thumbnail"> %>
+        <%#= cl_image_tag @look.photo.key %>
+      <%# </div> %>
+      <div class="row matching-pieces" data-controller='explore' data-toggle-target="matchingPieces">
         <input type="text" name='look_id' value='<%= @look.id %>' hidden>
         <% @pieces_by_cat.each do |category, pieces| %>
-          <%= category.name %>
-          <div class="swiper outfits-swiper"
-               data-controller="outfitsswiper"
-               data-outfitsswiper-loop-value="true"
-               data-outfitsswiper-slides-per-view-value="1">
-            <div class="swiper-wrapper pieces-list-item justify-content-center">
+          <div class="swiper explore-swiper"
+               data-controller="exploreswiper"
+               data-exploreswiper-loop-value="true"
+               data-exploreswiper-slides-per-view-value="1"
+               data-category='<%= category.name %>'>
+            <div class="swiper-wrapper">
               <% pieces.each_with_index do |piece, index| %>
-                <div class="swiper-slide outfits-swiper-slide">
-                  <label for="piece<%= piece.id %>">
+                <div class="swiper-slide image-display">
+                  <label for="piece<%= piece.id %>" data-action='click->explore#checkChecked' class="selected-piece">
                     <%= cl_image_tag piece.photo.key %>
-                    <h6><%= piece.name %></h6>
                   </label>
                   <% if index.zero? %>
-                    <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
+                    <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>" hidden>
                   <% else %>
-                    <input type="checkbox" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>">
+                    <input type="checkbox" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>" hidden>
                   <% end %>
                 </div>
               <% end %>
@@ -39,6 +46,8 @@
         <% end %>
       </div>
     </div>
-    <input type="submit" value="Save">
+    <div class='button-save'>
+      <input type="submit" value="Wear this >>">
+    </div>
   </form>
 </div>

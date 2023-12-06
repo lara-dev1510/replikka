@@ -6,6 +6,7 @@
 
 .button-back a {
   padding-left: 10px;
+  padding-right: 10px;
   text-decoration: none; /* Remove underline */
   color: $dark-blue; /* Optional: keeps the link color consistent with the rest of the text */
     &:hover {

@@ -20,23 +20,24 @@
       <%# <div class="thumbnail hidden" data-toggle-target="thumbnail"> %>
         <%#= cl_image_tag @look.photo.key %>
       <%# </div> %>
-      <div class="row matching-pieces" data-toggle-target="matchingPieces">
+      <div class="row matching-pieces" data-controller='explore' data-toggle-target="matchingPieces">
         <input type="text" name='look_id' value='<%= @look.id %>' hidden>
         <% @pieces_by_cat.each do |category, pieces| %>
           <div class="swiper explore-swiper"
                data-controller="exploreswiper"
                data-exploreswiper-loop-value="true"
-               data-exploreswiper-slides-per-view-value="1">
+               data-exploreswiper-slides-per-view-value="1"
+               data-category='<%= category.name %>'>
             <div class="swiper-wrapper">
               <% pieces.each_with_index do |piece, index| %>
                 <div class="swiper-slide image-display">
-                  <label for="piece<%= piece.id %>">
+                  <label for="piece<%= piece.id %>" data-action='click->explore#checkChecked' class="selected-piece">
                     <%= cl_image_tag piece.photo.key %>
                   </label>
                   <% if index.zero? %>
-                    <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>" data-category='<%= category.name %>'>
+                    <input type="checkbox" checked="true" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>" hidden>
                   <% else %>
-                    <input type="checkbox" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>" data-category='<%= category.name %>'>
+                    <input type="checkbox" name='pieces[]' id="piece<%= piece.id %>" value="<%= piece.id %>" hidden>
                   <% end %>
                 </div>
               <% end %>

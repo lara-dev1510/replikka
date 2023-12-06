@@ -84,21 +84,24 @@
   // width: 100%;
   font-size: 12px;
   margin: 0;
-  background-color: $dark-beige;
+  background-color: white;
   padding: 16px;
   border-radius: 16px;
-  margin: 16px;
-  text-align: center;
+  margin-right: 5px;
+  margin-bottom: 5px;
   display: flex;
+  flex-direction: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
   &:hover {
-    background-color: $darker-beige;
-    }
+    background-color: $dark-beige;
+  }
 }
 
 .statistics-card p {
-  color: $light-beige;
+  color: $dark-blue;
+
 }
 
 .statistics-card-main p {

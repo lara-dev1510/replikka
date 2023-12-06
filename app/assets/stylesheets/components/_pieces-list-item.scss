@@ -3,7 +3,7 @@
   padding: 5px;
   display: flex;
   justify-content: flex-start;
-  border-bottom: $light-gray 1px solid;
+  // border-bottom: $light-gray 1px solid;
   margin-inline: 30px;
 
   img {
@@ -27,4 +27,12 @@
 
 .button-piece {
   justify-content: end;
+}
+
+.fa-pen::before {
+  font-size: large;
+}
+
+.fa-layer-group::before {
+  font-size: large;
 }

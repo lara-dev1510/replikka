@@ -6,6 +6,7 @@
   color: $blue-sky-dark;
 }
 
+
 .img-logo {
   height: 23px;
 }
@@ -56,4 +57,12 @@ font-size: 17px;
   align-items: center;
   position: absolute;
   bottom: 20px;
+  font-size: 30px;
+}
+
+a.nav-link.middle-icon.active {
+  background-color: #FFFAF5;
+  color: #a2afe0;
+  // font-weight: lighter;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

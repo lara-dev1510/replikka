@@ -48,6 +48,11 @@ class PagesController < ApplicationController
                                .order('categories.position')
                                .group_by(&:category)
     end
+
+    respond_to do |format|
+      format.html {render "pages/generate"}
+      format.json
+    end
   end
 
   def statistics

@@ -50,6 +50,23 @@ class PagesController < ApplicationController
     end
   end
 
+  def statistics
+    @pieces = current_user.pieces
+    worny = @pieces.worn_ordered.group_by(&:category).transform_keys { |key| key.name }
+    # @worn_cat = @worny.joins(:category).group('category')
+    most_worn_by_cat = worny.transform_values { |value| value.first }
+    most_worn_by_cat_sorted = most_worn_by_cat.values.sort_by(&:worn_stat).reverse
+    @four_most_worn = most_worn_by_cat_sorted.first(4)
+    # raise
+
+    @pieces = current_user.pieces
+    worny = @pieces.worn_ordered.group_by(&:category).transform_keys { |key| key.name }
+    # @worn_cat = @worny.joins(:category).group('category')
+    least_worn_by_cat = worny.transform_values { |value| value.last }
+    least_worn_by_cat_sorted = least_worn_by_cat.values.sort_by(&:worn_stat)
+    @four_least_worn = least_worn_by_cat_sorted.first(4)
+  end
+
   private
 
   def pieces_params

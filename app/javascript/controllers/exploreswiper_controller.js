@@ -9,10 +9,14 @@ export default class extends Controller {
 
   connect() {
     const swiper = new Swiper(this.element, {
-      slidesPerView: this.slidesPerViewValue,
-      spaceBetween: 1,
-      freeMode: true,
-      loop: this.loopValue,
+      // slidesPerView: this.slidesPerViewValue,
+      // spaceBetween: 1,
+      // freeMode: true,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
     });
   }
 }

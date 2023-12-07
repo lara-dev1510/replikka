@@ -73,7 +73,7 @@
 }
 
 .explore-swiper {
-  padding-bottom: 16px;
+  // padding-bottom: 16px;
 }
 
 .details-image {
@@ -86,10 +86,25 @@
 }
 
 .selected-piece {
-  border: black 1px solid;
+  // border: $dark-beige 5px solid;
+  box-shadow: 5px 3px 3px $dark-beige;
   border-radius: 16px;
+  margin: 10px;
 }
 
 .div.position-absolute {
   background-color: #ECE9E4;
+}
+
+// .swiper-wrapper-explore {
+//   // overflow-x: auto;
+//   // gap: 1rem;
+// }
+
+// .swiper-wrapper-explore::-webkit-scrollbar {
+//   width: 0px;
+// }
+
+.swiper-button-explore {
+  color: $dark-beige;
 }

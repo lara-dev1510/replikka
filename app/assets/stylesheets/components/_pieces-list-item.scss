@@ -1,14 +1,14 @@
 .pieces-list-item {
   text-align: center;
-  padding: 5px;
+  padding: 12px;
   display: flex;
   justify-content: flex-start;
-  // border-bottom: $light-gray 1px solid;
+  border-bottom: $beige 1px solid;
   // margin-inline: 30px;
 
   img {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     object-fit: cover;
     object-position: center;
   }
@@ -21,7 +21,7 @@
 
 .background-list {
   background-color: white;
-  padding-inline: 10px;
+  // padding-inline: 10px;
 }
 
 .button-piece {

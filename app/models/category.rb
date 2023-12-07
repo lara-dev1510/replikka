@@ -43,7 +43,7 @@ class Category < ApplicationRecord
   PHOTOS = [
     {
       name: "Tops & t-shirts",
-      photo_url: 'https://res.cloudinary.com/dcequpnjy/image/upload/v1701714038/tops-PhotoRoom_1_jwjehq.png'
+      photo_url: 'https://res.cloudinary.com/dcequpnjy/image/upload/v1701961403/te%CC%81le%CC%81chargement-PhotoRoom_qf7vmc.png'
     },
     {
       name: "Sweaters",

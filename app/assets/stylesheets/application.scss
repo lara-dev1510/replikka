@@ -14,7 +14,7 @@
 
 .main-content {
   height: 100vh;
-  padding-bottom: 68px;
+  // padding-bottom: 68px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -38,4 +38,13 @@ body {
   background-image: asset-url('background.svg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.sticky-header {
+  height: 78vh;
+  overflow-y: scroll;
+  padding: 1rem;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }

@@ -22,6 +22,7 @@ export default class extends Controller {
     }).then((answer) => {
       return answer.json()
     }).then((data) => {
+      console.log(data);
       this.resultsTarget.innerHTML = data.results
     })
   }

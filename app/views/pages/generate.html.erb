@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center mb-5">
     <div class="grid-today tab-underlined active" >
-      <h2> Dressing </h2>
+      <h2> Closet </h2>
     </div>
     <div class="col-sm-12 mt-3" data-controller='searchbar' data-action="keyup->searchbar#search">
       <%= form_with url: generate_path,
@@ -12,7 +12,7 @@
               params[:query],
               class: "form-control text-center icon",
               style: "font-size: 20px;background-color:white;border-radius: 20px;border:0px",
-              placeholder: "Search for a piece"
+              placeholder: "Explore your closet"
           %>
         <i class="fa-regular fa-plus" ></i>
       <% end %>

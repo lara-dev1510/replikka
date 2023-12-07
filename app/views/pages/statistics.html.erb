@@ -1,46 +1,46 @@
 <div class="container mt-2 d-flex flex-column specific-index">
   <div class="grid-today tab-underlined active" >
-    <h2> Statistics </h2>
+    <h2>Statistics</h2>
   </div>
-
-  <div class="worn_container">
-    <div class="statistics-card statistics-card-main">
-      <h2><%= Outfit.all.count %></h2> <p>outfits generated </p>
+  <div class="sticky-header">
+    <div class="worn_container">
+      <div class="statistics-card statistics-card-main">
+        <h2><%= Outfit.all.count %></h2> <p>outfits generated </p>
+      </div>
+      <div>
+        <div class="statistics-card">
+          <h2><%= Piece.wardrobe_percentage_use(current_user) %>%</h2><p> of wardrobe worn</p>
+        </div>
+        <div class="statistics-card">
+          <h2><%= Piece.never_worn(current_user) %></h2><p> pieces never worn</p>
+        </div>
+      </div>
     </div>
     <div>
-      <div class="statistics-card">
-        <h2><%= Piece.wardrobe_percentage_use(current_user) %>%</h2><p> of wardrobe worn</p>
+      <div class="worn_padding">
+        <div class='title__container'>
+          <p>Most Worn</p>
+          <div class='highlight-title'></div>
+        </div>
+        <div class="worn_container">
+          <% @four_most_worn.each do |piece| %>
+          <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>
+          <% end %>
+        </div>
       </div>
-      <div class="statistics-card">
-        <h2><%= Piece.never_worn(current_user) %></h2><p> pieces never worn</p>
+
+      <div class="worn_padding">
+        <div class='title__container'>
+          <p>Least Worn</p>
+          <div class='highlight-title'></div>
+        </div>
+        <div class="worn_container">
+          <% @four_least_worn.each do |piece| %>
+          <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>
+          <% end %>
+        </div>
       </div>
     </div>
+
   </div>
-
-  <div>
-    <div class="worn_padding">
-      <div class='title__container'>
-        <p>Most Worn</p>
-        <div class='highlight-title'></div>
-      </div>
-      <div class="worn_container">
-        <% @four_most_worn.each do |piece| %>
-        <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="worn_padding">
-      <div class='title__container'>
-        <p>Least Worn</p>
-        <div class='highlight-title'></div>
-      </div>
-      <div class="worn_container">
-        <% @four_least_worn.each do |piece| %>
-        <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
 </div>

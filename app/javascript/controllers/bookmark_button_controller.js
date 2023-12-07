@@ -12,8 +12,11 @@ export default class extends Controller {
 
   bookmark(event) {
     const button = event.currentTarget
-    button.hidden = true
-    this.bookmarkedTarget.hidden = false
+    // button.classList.toggle('favorited')
+    // button.classList.toggle('icon-card-favorited')
+    button.hidden = !button.hidden
+    this.bookmarkedTarget.hidden = !this.bookmarkedTarget.hidden
+    this.bookmarkedTarget.classList.toggle('favorited')
   }
 
 }

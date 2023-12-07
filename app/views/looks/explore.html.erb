@@ -21,13 +21,13 @@
         <% @pieces_by_cat.each do |category, pieces| %>
           <div class="swiper explore-swiper"
                data-controller="exploreswiper"
-               data-exploreswiper-loop-value="true"
-               data-exploreswiper-slides-per-view-value="1"
+               <%# data-exploreswiper-loop-value="true"
+               data-exploreswiper-slides-per-view-value="1" %>
                data-category='<%= category.name %>'>
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper swiper-wrapper-explore">
               <% pieces.each_with_index do |piece, index| %>
                 <div class="swiper-slide image-display">
-                  <label for="piece<%= piece.id %>" data-action='click->explore#checkChecked' class="selected-piece">
+                  <label for="piece<%= piece.id %>" data-action='click->explore#checkChecked' class="<%= "selected-piece" if index.zero? %>">
                     <%= cl_image_tag piece.photo.key %>
                   </label>
                   <% if index.zero? %>
@@ -38,6 +38,8 @@
                 </div>
               <% end %>
             </div>
+            <div class="swiper-button-next swiper-button-explore"></div>
+            <div class="swiper-button-prev swiper-button-explore"></div>
           </div>
         <% end %>
       </div>

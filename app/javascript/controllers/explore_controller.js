@@ -11,10 +11,11 @@ export default class extends Controller {
     const container = card.closest('.explore-swiper')
     const checkboxes = container.querySelectorAll('input[type=checkbox]:checked')
     const arr_checkboxes = Array.from(checkboxes)
-    const checked = arr_checkboxes.filter(checkbx => checkbx !== checkbox)
+    const checked = arr_checkboxes.filter(checkbx => checkbx !== checkbox);
     checked.forEach((chckbx) => {
-      chckbx.checked = false
-      checkbox.classList.remove('.selected-piece')
+      chckbx.checked = false;
+      chckbx.previousElementSibling.classList.remove('selected-piece')
     })
+    card.classList.add('selected-piece')
   }
 }

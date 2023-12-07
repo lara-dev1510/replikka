@@ -19,7 +19,10 @@
 
   <div>
     <div class="worn_padding">
-      <h2>Most Worn</h2>
+      <div class='title__container'>
+        <p>Most Worn</p>
+        <div class='highlight-title'></div>
+      </div>
       <div class="worn_container">
         <% @four_most_worn.each do |piece| %>
         <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>
@@ -28,7 +31,10 @@
     </div>
 
     <div class="worn_padding">
-      <h2>Least Worn</h2>
+      <div class='title__container'>
+        <p>Least Worn</p>
+        <div class='highlight-title'></div>
+      </div>
       <div class="worn_container">
         <% @four_least_worn.each do |piece| %>
         <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>

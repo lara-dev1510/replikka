@@ -81,22 +81,22 @@
 
 .statistics-card {
   // height: 100%;
-  // width: 100%;
+  width: 100%;
   font-size: 12px;
   margin: 0;
   background-color: white;
   padding: 16px;
   border-radius: 16px;
-  margin-right: 5px;
+  margin-right: 14px;
   margin-bottom: 5px;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: center;
-  &:hover {
-    background-color: $dark-beige;
-  }
+  // &:hover {
+  //   background-color: $dark-beige;
+  // }
 }
 
 .statistics-card p {
@@ -106,5 +106,26 @@
 
 .statistics-card-main p {
   font-size: 25px;
-  margin: 0px
+  margin: 0px;
+}
+
+.statistics-card-main {
+  // height: 100%;
+  // width: 100%;
+  font-size: 12px;
+  margin: 0;
+  background-color: $dark-beige;
+  padding: 16px;
+  border-radius: 16px;
+  // margin-right: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  // &:hover {
+  //   background-color: $dark-beige;
+  // }
+  width: 47%;
 }

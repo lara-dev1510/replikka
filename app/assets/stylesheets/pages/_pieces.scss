@@ -6,15 +6,15 @@
 
 .fa-plus {
   background-size: 20px;
-  color:rgb(76, 74, 74);
-  border: solid 1px grey;
+  color:$dark-blue;
+  border: solid 1.5px $dark-blue;
   border-radius: 50px;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-right: 3px;
   padding-left: 3px;
   position: relative;
-  top: -33px;
+  top: -100px;
   left: 295px;
 }
 
@@ -28,4 +28,13 @@ form {
   cursor: pointer;
   margin-bottom: 13px;
   border-radius: 10px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem $dark-beige;
+}
+
+#query::placeholder {
+  // color: grey;
+  opacity: 60%;
 }

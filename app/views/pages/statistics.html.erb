@@ -1,6 +1,6 @@
 <div class="container mt-2 d-flex flex-column specific-index">
   <div class="grid-today tab-underlined active" >
-    <h2> Statistics </h2>
+    <h2>Statistics</h2>
   </div>
   <div class="sticky-header">
     <div class="worn_container">
@@ -16,10 +16,12 @@
         </div>
       </div>
     </div>
-
     <div>
       <div class="worn_padding">
-        <h2>Most Worn</h2>
+        <div class='title__container'>
+          <p>Most Worn</p>
+          <div class='highlight-title'></div>
+        </div>
         <div class="worn_container">
           <% @four_most_worn.each do |piece| %>
           <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>
@@ -28,7 +30,10 @@
       </div>
 
       <div class="worn_padding">
-        <h2>Least Worn</h2>
+        <div class='title__container'>
+          <p>Least Worn</p>
+          <div class='highlight-title'></div>
+        </div>
         <div class="worn_container">
           <% @four_least_worn.each do |piece| %>
           <%= cl_image_tag piece.photo.key, class: "thumbnail-rounded" %>
@@ -36,6 +41,6 @@
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>

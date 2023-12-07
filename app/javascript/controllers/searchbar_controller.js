@@ -6,5 +6,25 @@ export default class extends Controller {
 
   connect() {}
 
-  search(event) {}
+  search(event) {
+    // On vide
+    const query = this.inputTarget.children[0].value
+    // On prépare l'url (endpoint)
+    const url = `/generate?query=${query}`
+    // On fait la requête
+    this.fetch(url)
+  }
+
+  fetch(url) {
+    fetch(url, {
+      method: "GET",
+      headers: {"Accept": "application/json"}
+    }).then((answer) => {
+      return answer.json()
+    }).then((data) => {
+      console.log(data);
+      this.resultsTarget.innerHTML = data.results
+    })
+  }
+
 }

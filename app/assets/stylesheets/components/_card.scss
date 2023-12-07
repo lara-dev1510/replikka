@@ -81,10 +81,51 @@
 
 .statistics-card {
   // height: 100%;
-  // width: 100%;
+  width: 100%;
   font-size: 12px;
   margin: 0;
   background-color: white;
+  padding: 16px;
+  border-radius: 16px;
+<<<<<<< HEAD
+  // margin-right: 5px;
+=======
+  margin-right: 14px;
+>>>>>>> 3e1545436d4ce9adfc998eb71a932b316d7b7aeb
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  // &:hover {
+  //   background-color: $dark-beige;
+  // }
+}
+
+.statistics-card p {
+  color: $dark-blue;
+
+}
+
+.statistics-card-main p {
+  font-size: 25px;
+  margin: 0px;
+  color: $white-broke;
+}
+
+.statistics-card-main h2 {
+  // font-size: 25px;
+  margin: 0px;
+  color: $white-broke;
+}
+
+.statistics-card-main {
+  // height: 100%;
+  // width: 100%;
+  font-size: 12px;
+  margin: 0;
+  background-color: $dark-beige;
   padding: 16px;
   border-radius: 16px;
   // margin-right: 5px;
@@ -94,21 +135,8 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  &:hover {
-    background-color: $dark-beige;
-  }
-}
-
-.statistics-card p {
-  color: $dark-blue;
-
-}
-
-.statistics-card-main p {
-  margin: 0px
-}
-
-.stats-part-1 {
-  display: flex;
-  gap: 20px;
+  // &:hover {
+  //   background-color: $dark-beige;
+  // }
+  width: 47%;
 }

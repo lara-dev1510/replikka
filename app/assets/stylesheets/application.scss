@@ -14,7 +14,7 @@
 
 .main-content {
   height: 100vh;
-  padding-bottom: 68px;
+  // padding-bottom: 68px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -39,4 +39,16 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: $dark-blue;
+}
+
+.sticky-header {
+  height: 78vh;
+  overflow-y: scroll;
+  padding: 1rem;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  > .worn_container {
+    flex-wrap: nowrap;
+  }
 }

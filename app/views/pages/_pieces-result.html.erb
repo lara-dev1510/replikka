@@ -1,0 +1,7 @@
+<div data-searchbar-target="results">
+  <% if query && !query.blank? %>
+    <%= render 'searched_pieces', pieces: pieces %>
+  <% else %>
+    <%= render 'grouped_pieces', grouped_pieces: grouped_pieces %>
+  <% end %>
+</div>

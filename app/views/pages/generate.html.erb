@@ -17,12 +17,6 @@
         <i class="fa-regular fa-plus" ></i>
       <% end %>
     </div>
-    <div data-searchbar-target="results">
-      <% if @query && !@query.blank? %>
-        <%= render 'searched_pieces', pieces: @pieces %>
-      <% else %>
-        <%= render 'grouped_pieces', grouped_pieces: @grouped_pieces %>
-      <% end %>
-    </div>
+    <%= render "pieces-result", query: @query, pieces: @pieces, grouped_pieces: @grouped_pieces %>
   </div>
 </div>

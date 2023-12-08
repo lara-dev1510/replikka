@@ -1,1 +1,1 @@
-json.results render(partial: "pages/searched_pieces", formats: :html, locals: {pieces: @pieces})
+json.results render(partial: "pages/pieces-result", formats: :html, locals: {query: @query, pieces: @pieces, grouped_pieces: @grouped_pieces})

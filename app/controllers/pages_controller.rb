@@ -38,7 +38,7 @@ class PagesController < ApplicationController
 
   def generate
     @pieces = current_user.pieces
-
+    @query = query
     if query
       # render searched pieces (with categories)
       @pieces = @pieces.global_search(query)

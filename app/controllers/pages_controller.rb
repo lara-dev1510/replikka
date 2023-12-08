@@ -7,8 +7,8 @@ class PagesController < ApplicationController
 
   def today
     # @looks = Look.all
-    user = current_user
-    blocked_looks = user.blocked_by
+    @user = current_user
+    blocked_looks = @user.blocked_by
     if params[:piece]
       @looks = Piece.find(params[:piece]).generate_looks
     else

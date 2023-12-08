@@ -11,7 +11,7 @@
             <%#= cl_image_tag look.photo.key %>
             <%= cl_image_tag Look.find(favorite.favoritable_id).photo.key %>
               <%= link_to unfavorite_path(Look.find(favorite.favoritable_id)), data: { turbo_method: :patch }  do %>
-                <i class="fa-regular fa-bookmark icon-favorite"></i>
+                <i class="fa-solid fa-bookmark icon-favorite"></i>
               <% end %>
           <% end %>
         </div>

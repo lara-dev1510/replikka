@@ -2,9 +2,10 @@
   "name": "Replikka",
   "description": "Replikka - find the perfect outfit",
   "background_color": "#e4d4bc",
-  "display": "standalone",
-  "start_URL": "/",
+  "theme_color": "#e4d4bc",
   "id": "/",
+  "display": "standalone",
+  "start_url": "/",
   "icons": [
     <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
     <% files.each_with_index do |file, index| %>

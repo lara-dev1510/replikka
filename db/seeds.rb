@@ -107,6 +107,7 @@ piece_number = 1
 CSV.foreach(filepath_pieces, headers: :first_row) do |row|
   item = Subcategory::ITEMS.find{ |item| item[:name] == row['item'] }
   fabric = Subcategory::FABRICS.find{ |item| item[:name] == row['fabric'] }
+  p row
   subcategory = Subcategory.find_or_create_by(
     name: item[:name],
     category_id: Category.find_by_position(item[:position]).id,
